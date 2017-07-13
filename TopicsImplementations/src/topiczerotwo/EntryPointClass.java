@@ -1,6 +1,7 @@
 package topiczerotwo;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 /**
  * Main class to test Abstract factory pattern with DB connections.
@@ -10,26 +11,19 @@ import java.io.IOException;
  */
 public class EntryPointClass {
 
-	// Types of DB
-	private static final String ORACLE = "ORACLE";
-	private static final String SQL = "SQL";
-
-	// Differents implementations of DBMS SQL
-	private static final String MY_SQL = "MYSQL";
-	private static final String POSTGRE_SQL = "POSTGRESQL";
-	private static final String LITE_SQL = "SQLITE";
-
-	public static void main(String[] args) throws IOException {
-		AbstractFactory factoryBuilder = FactoryBuilder.biuldFactory(SQL);
+	public static void main(String[] args) throws IOException, SQLException {
+		AbstractFactory factoryBuilder = FactoryBuilder.biuldFactory(DataBases.SQL);
 
 		// MySQL connection
-		SQLConnector sqlConnector = factoryBuilder.create(MY_SQL);
+		SQLConnector sqlConnector = factoryBuilder.create(SQLContracts.MYSQL);
 		sqlConnector.doConnect();		
-
-		sqlConnector = factoryBuilder.create(POSTGRE_SQL);
+		
+		// PostgreSQL connection
+		sqlConnector = factoryBuilder.create(SQLContracts.POSTGRESQL);
 		sqlConnector.doConnect();
 
-		sqlConnector = factoryBuilder.create(LITE_SQL);
+		//SQLite connection
+		sqlConnector = factoryBuilder.create(SQLContracts.SQLITE);
 		sqlConnector.doConnect();
 	}
 

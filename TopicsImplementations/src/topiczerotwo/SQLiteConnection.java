@@ -1,14 +1,13 @@
 package topiczerotwo;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.sql.SQLException;
-import java.util.Properties;
 
-public class SQLiteConnection implements SQLConnector {
+public class SQLiteConnection extends CommonBehavior {	
 
-	private static final String DATASOURCE_CONNECTION = "datasource.properties";
-
+	private static final String PASSWORD3 = "password3";
+	private static final String SQLITEURL = "sqliteurl";
+	private static final String SQLITEUSER = "sqliteuser";
+	
 	private static SQLiteConnection singlettonDBConnection = null;
 	private static Object flag = new Object();
 
@@ -37,27 +36,7 @@ public class SQLiteConnection implements SQLConnector {
 
 	@Override
 	public void doConnect() {
-		InputStream input = SQLiteConnection.class.getClassLoader().getResourceAsStream(DATASOURCE_CONNECTION);
-		Properties properties = new Properties();
-		try {
-			properties.load(input);
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			if (input != null) {
-				try {
-					input.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		connectionData = new ConnectionData(properties.getProperty("sqliteuser"), properties.getProperty("password"),
-				properties.getProperty("sqliteurl"));
-		try {
-			connectionData.doDBConnection();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		connectionData = getConnectionData(SQLITEUSER,PASSWORD3,SQLITEURL);
+		connectionData.doDBConnection();		
 	}
 }

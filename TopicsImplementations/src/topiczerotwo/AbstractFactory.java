@@ -10,6 +10,6 @@ import java.io.IOException;
  */
 public abstract class AbstractFactory {
 
-	public abstract SQLConnector create(String sqlType) throws IOException;
+	public abstract SQLConnector create(SQLContracts sqlType) throws IOException;
 
 }

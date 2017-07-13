@@ -1,9 +1,6 @@
 package topiczerotwo;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.sql.SQLException;
-import java.util.Properties;
 
 /**
  * @author andres.vaninetti
@@ -11,10 +8,12 @@ import java.util.Properties;
  *         Connection to DB using singleton pattern.
  *
  */
-public class MySQLConnection implements SQLConnector {
+public class MySQLConnection extends CommonBehavior {	
 
-	private static final String DATASOURCE_CONNECTION = "datasource.properties";
-
+	private static final String PASSWORD1 = "password1";
+	private static final String USER = "user";
+	private static final String SQLURL = "sqlurl";
+	
 	private static MySQLConnection singlettonDBConnection = null;
 	private static Object flag = new Object();
 
@@ -43,28 +42,8 @@ public class MySQLConnection implements SQLConnector {
 
 	@Override
 	public void doConnect() {
-		InputStream input = MySQLConnection.class.getClassLoader().getResourceAsStream(DATASOURCE_CONNECTION);
-		Properties properties = new Properties();
-		try {
-			properties.load(input);
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			if (input != null) {
-				try {
-					input.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		connectionData = new ConnectionData(properties.getProperty("user"), properties.getProperty("password"),
-				properties.getProperty("localhost"));
-		try {
-			connectionData.doDBConnection();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		connectionData = getConnectionData(USER,PASSWORD1,SQLURL);
+		connectionData.doDBConnection();		
 	}
 
 }

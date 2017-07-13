@@ -1,14 +1,14 @@
 package topiczerotwo;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.sql.SQLException;
-import java.util.Properties;
 
-public class PostgreSQLConnection implements SQLConnector {
+public class PostgreSQLConnection extends CommonBehavior {	
 
-	private static final String DATASOURCE_CONNECTION = "datasource.properties";
-
+	private static final String PASSWORD2 = "password2";
+	private static final String POSTGRESQLUSER = "postgresqluser";
+	private static final String POSTGREURL = "postgreurl";
+	
 	private static PostgreSQLConnection singlettonDBConnection = null;
 	private static Object flag = new Object();
 
@@ -36,28 +36,9 @@ public class PostgreSQLConnection implements SQLConnector {
 	}
 
 	@Override
-	public void doConnect() {
-		InputStream input = PostgreSQLConnection.class.getClassLoader().getResourceAsStream(DATASOURCE_CONNECTION);
-		Properties properties = new Properties();
-		try {
-			properties.load(input);
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			if (input != null) {
-				try {
-					input.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		connectionData = new ConnectionData(properties.getProperty("postgresqluser"), properties.getProperty("password"),
-				properties.getProperty("postgreurl"));
-		try {
-			connectionData.doDBConnection();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+	public void doConnect() throws SQLException {
+		connectionData = getConnectionData(POSTGRESQLUSER,PASSWORD2,POSTGREURL);
+		connectionData.doDBConnection();
 	}
 }
+	

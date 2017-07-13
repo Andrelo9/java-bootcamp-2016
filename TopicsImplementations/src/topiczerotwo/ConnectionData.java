@@ -1,8 +1,14 @@
 package topiczerotwo;
 
-import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * This class is used to create an object with the information of connection
+ * populated here and to create a new session on a DB.
+ * 
+ * @author andres.vaninetti
+ *
+ */
 public class ConnectionData {
 
 	private String username;
@@ -32,9 +38,8 @@ public class ConnectionData {
 	 * 
 	 * @throws SQLException
 	 */
-	public void doDBConnection() throws SQLException {
-		System.out.println("Connection established for: " + this.username);
-		DriverManager.getConnection(this.host);
+	public void doDBConnection() {
+		System.out.println("Connection established for: " + this.username);	
 	}
 
 }

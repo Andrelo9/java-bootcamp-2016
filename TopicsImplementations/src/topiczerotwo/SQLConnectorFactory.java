@@ -10,26 +10,23 @@ import java.io.IOException;
  */
 public class SQLConnectorFactory extends AbstractFactory {
 
-	private static final String SQLITE = "SQLITE";
-	private static final String POSTGRESQL = "POSTGRESQL";
-	private static final String MYSQL = "MYSQL";
-
 	@Override
-	public SQLConnector create(String sqlType) throws IOException {
-		if (sqlType == null) {
-			return null;
-		}
-		if (sqlType == MYSQL) {
-			MySQLConnection mySQLConnection = MySQLConnection.getInstance();
-			return mySQLConnection;
-		} else if (sqlType == POSTGRESQL) {
-			PostgreSQLConnection postgreSQLConnection = PostgreSQLConnection.getInstance();
-			return postgreSQLConnection;
-		} else if (sqlType == SQLITE) {
-			SQLiteConnection sqLiteConnection = SQLiteConnection.getInstance();
-			return sqLiteConnection;
+	public SQLConnector create(SQLContracts sqlType) throws IOException {
+		try {
+			switch (sqlType) {
+			case MYSQL:
+				MySQLConnection mySQLConnection = MySQLConnection.getInstance();
+				return mySQLConnection;
+			case POSTGRESQL:
+				PostgreSQLConnection postgreSQLConnection = PostgreSQLConnection.getInstance();
+				return postgreSQLConnection;
+			case SQLITE:
+				SQLiteConnection sqLiteConnection = SQLiteConnection.getInstance();
+				return sqLiteConnection;
+			}
+		} catch (NullPointerException e) {
+			e.getMessage();
 		}
 		return null;
 	}
-
 }
