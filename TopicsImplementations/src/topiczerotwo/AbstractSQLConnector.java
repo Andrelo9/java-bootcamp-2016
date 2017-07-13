@@ -10,12 +10,12 @@ import java.util.Properties;
  * @author andres.vaninetti
  *
  */
-public abstract class CommonBehavior implements SQLConnector {
+public abstract class AbstractSQLConnector implements SQLConnector {
 	
 	private static final String DATASOURCE_CONNECTION = "datasource.properties";
 	
 	public ConnectionData getConnectionData (String user, String password, String urlFormat) {
-		InputStream input = CommonBehavior.class.getClassLoader().getResourceAsStream(DATASOURCE_CONNECTION);
+		InputStream input = AbstractSQLConnector.class.getClassLoader().getResourceAsStream(DATASOURCE_CONNECTION);
 		Properties properties = new Properties();
 		try {
 			properties.load(input);

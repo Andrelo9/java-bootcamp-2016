@@ -8,7 +8,7 @@ import java.io.IOException;
  *         Connection to DB using singleton pattern.
  *
  */
-public class MySQLConnection extends CommonBehavior {	
+public class MySQLConnection extends AbstractSQLConnector {	
 
 	private static final String PASSWORD1 = "password1";
 	private static final String USER = "user";

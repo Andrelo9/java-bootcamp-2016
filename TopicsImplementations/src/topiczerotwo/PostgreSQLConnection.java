@@ -3,7 +3,7 @@ package topiczerotwo;
 import java.io.IOException;
 import java.sql.SQLException;
 
-public class PostgreSQLConnection extends CommonBehavior {	
+public class PostgreSQLConnection extends AbstractSQLConnector {	
 
 	private static final String PASSWORD2 = "password2";
 	private static final String POSTGRESQLUSER = "postgresqluser";

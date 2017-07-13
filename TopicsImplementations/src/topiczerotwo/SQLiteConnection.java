@@ -2,7 +2,7 @@ package topiczerotwo;
 
 import java.io.IOException;
 
-public class SQLiteConnection extends CommonBehavior {	
+public class SQLiteConnection extends AbstractSQLConnector {	
 
 	private static final String PASSWORD3 = "password3";
 	private static final String SQLITEURL = "sqliteurl";
