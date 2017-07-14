@@ -8,6 +8,9 @@ package topiczerofour;
  */
 public class MySQLConnection implements ConnectionBuilder {
 
+	private static final int PORT = 8080;
+	private static final String HOST = "localhost";
+	private static final String BASE_NAME = "fifa.db";
 	private SQLConnection sqlConnection;
 
 	public MySQLConnection() {
@@ -16,19 +19,19 @@ public class MySQLConnection implements ConnectionBuilder {
 
 	@Override
 	public ConnectionBuilder buildDataBaseName() {
-		sqlConnection.setDatabaseName("afa.db");
+		sqlConnection.setDatabaseName(BASE_NAME);
 		return this;
 	}
 
 	@Override
 	public ConnectionBuilder buildHostName() {
-		sqlConnection.setHostname("localhost");
+		sqlConnection.setHostname(HOST);
 		return this;
 	}
 
 	@Override
 	public ConnectionBuilder buildPort() {
-		this.sqlConnection.setPort(8080);
+		this.sqlConnection.setPort(PORT);
 		return this;
 	}
 

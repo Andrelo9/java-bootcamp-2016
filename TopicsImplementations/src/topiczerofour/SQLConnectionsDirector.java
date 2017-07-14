@@ -15,7 +15,10 @@ public class SQLConnectionsDirector {
 	}
 
 	public void buildConnection() {
-		this.connectionBuilder.buildDataBaseName().buildHostName().buildPort();
+		this.connectionBuilder
+		.buildDataBaseName()
+		.buildHostName()
+		.buildPort();
 	}
 
 	public SQLConnection getSQLConnection() {

@@ -8,6 +8,9 @@ package topiczerofour;
  */
 public class PostgreSQLConnection implements ConnectionBuilder {
 
+	private static final int PORT = 8081;
+	private static final String HOST = "anotherhost";
+	private static final String BASE_NAME = "fifa.db";
 	private SQLConnection sqlConnection;
 
 	public PostgreSQLConnection() {
@@ -16,19 +19,19 @@ public class PostgreSQLConnection implements ConnectionBuilder {
 
 	@Override
 	public ConnectionBuilder buildDataBaseName() {
-		sqlConnection.setDatabaseName("fifa.db");
+		sqlConnection.setDatabaseName(BASE_NAME);
 		return this;
 	}
 
 	@Override
 	public ConnectionBuilder buildHostName() {
-		sqlConnection.setHostname("anotherhost");
+		sqlConnection.setHostname(HOST);
 		return this;
 	}
 
 	@Override
 	public ConnectionBuilder buildPort() {
-		sqlConnection.setPort(8081);
+		sqlConnection.setPort(PORT);
 		return this;
 	}
 

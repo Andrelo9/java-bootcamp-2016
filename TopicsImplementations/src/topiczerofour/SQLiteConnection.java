@@ -8,6 +8,9 @@ package topiczerofour;
  */
 public class SQLiteConnection implements ConnectionBuilder {
 
+	private static final int PORT = 8082;
+	private static final String HOSTNAME = "otherhost";
+	private static final String BASE_NAME = "fiba.db";
 	private SQLConnection sqlConnection;
 
 	public SQLiteConnection() {
@@ -16,19 +19,19 @@ public class SQLiteConnection implements ConnectionBuilder {
 
 	@Override
 	public ConnectionBuilder buildDataBaseName() {
-		sqlConnection.setDatabaseName("fiba.db");
+		sqlConnection.setDatabaseName(BASE_NAME);
 		return this;
 	}
 
 	@Override
 	public ConnectionBuilder buildHostName() {
-		sqlConnection.setHostname("otherhost");
+		sqlConnection.setHostname(HOSTNAME);
 		return this;
 	}
 
 	@Override
 	public ConnectionBuilder buildPort() {
-		this.sqlConnection.setPort(8082);
+		this.sqlConnection.setPort(PORT);
 		return this;
 	}
 
