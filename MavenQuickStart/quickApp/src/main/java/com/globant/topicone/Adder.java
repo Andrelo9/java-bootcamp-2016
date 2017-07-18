@@ -1,4 +1,4 @@
-package com.globant.app;
+package com.globant.topicone;
 
 /**
  * This class returns the sum of two integers.
