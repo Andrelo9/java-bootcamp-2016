@@ -25,6 +25,7 @@ public class RecentFileListBehaviorTest {
 	@Test
 	public final void whenProgramIsRunForTheFirstTimeThenTheListIsEmptyTest() {
 		FileList myFileList = new FileList();
+		
 		Assert.assertTrue(myFileList.getRecentFileList().isEmpty());
 	}
 
@@ -35,6 +36,7 @@ public class RecentFileListBehaviorTest {
 	@Test
 	public final void givenANewFileThenIsClosedByDefault() {
 		CustomFile customFile = new CustomFile("users", FILE_PATH);
+		
 		Assert.assertFalse(customFile.isFileOpen());
 	}
 
@@ -46,6 +48,7 @@ public class RecentFileListBehaviorTest {
 	public final void verifyifFileIsOpenTest() {
 		CustomFile customFile = new CustomFile("users", FILE_PATH);
 		customFile.openFile();
+		
 		Assert.assertTrue(customFile.isFileOpen());
 	}
 
@@ -58,6 +61,7 @@ public class RecentFileListBehaviorTest {
 		CustomFile customFile = new CustomFile("users", FILE_PATH);
 		customFile.openFile();
 		customFile.closeFile();
+		
 		Assert.assertFalse(customFile.isFileOpen());
 	}
 
