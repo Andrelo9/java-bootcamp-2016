@@ -40,7 +40,7 @@ public class Blog {
 	 * @param theme
 	 * @param entries
 	 */
-	public Blog(String name, String owner, String theme, LinkedList<Entry> entries) {
+	public Blog(String name, String owner, String theme, List<Entry> entries) {
 		this.name = name;
 		this.owner = owner;
 		this.theme = theme;
