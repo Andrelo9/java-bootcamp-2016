@@ -1,7 +1,8 @@
-package com.globant.app;
+package com.globant.topicone;
 
-import org.junit.Ignore;
 import org.junit.Test;
+
+import com.globant.topicone.Adder;
 
 import junit.framework.Assert;
 
