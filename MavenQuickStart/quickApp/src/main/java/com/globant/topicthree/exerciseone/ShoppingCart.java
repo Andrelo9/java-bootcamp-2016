@@ -6,15 +6,12 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * This class represent a virtual Shopping Cart and provides the basic features
- * of this.
+ * This entity represent a virtual Shopping Cart. of this.
  * 
  * @author andres.vaninetti
  *
  */
-public class ShoppingCart implements ShoppingCartService, Serializable {
-
-	private static final int MAX_PRODUCTS_CAPACITY = 5;
+public class ShoppingCart implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -38,24 +35,6 @@ public class ShoppingCart implements ShoppingCartService, Serializable {
 	public ShoppingCart(List<Product> products) {
 		this.products = products;
 		this.id = UUID.randomUUID().toString();
-	}
-
-	public ShoppingCart getShoppingCart() {
-		return this;
-	}	
-
-	public void addProduct(Product productToAdd) {
-		if (this.products.size() < MAX_PRODUCTS_CAPACITY) {
-			this.products.add(productToAdd);
-		}
-	}
-
-	public void removeProduct(Product productToDelete) {
-		for (Product product:products) {
-			if (product.getId().equals(productToDelete.getId())){			
-				this.products.remove(product);
-			}
-		}
 	}
 
 	/**

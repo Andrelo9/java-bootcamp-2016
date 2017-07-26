@@ -1,7 +1,5 @@
 package com.globant.topicthree.exerciseone;
 
-import java.util.UUID;
-
 /**
  * This class represent a product, and is used to populate a shopping cart.
  * 
@@ -9,22 +7,22 @@ import java.util.UUID;
  *
  */
 public class Product {
-	
-	private String id;
-	
+
+	private int id;
+
 	/**
 	 * Constructor method
 	 * 
 	 */
-	public Product() {
-		this.id = UUID.randomUUID().toString();
+	public Product(int productId) {
+		this.id = productId;
 	}
 
 	/**
 	 * @return the id
 	 */
-	public String getId() {
+	public int getId() {
 		return id;
 	}
-	
+
 }

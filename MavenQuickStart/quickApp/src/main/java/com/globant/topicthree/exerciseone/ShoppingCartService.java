@@ -9,11 +9,11 @@ package com.globant.topicthree.exerciseone;
 public interface ShoppingCartService {
 	
 	/**
-	 * Return a Shopping Cart
+	 * Write in some data structure in memory in this case.
 	 * 
 	 * @return Shopping Cart
 	 */
-	public ShoppingCart getShoppingCart();	
+	public ShoppingCart checkOut();	
 	
 	/**
 	 * Add a product to shopping cart.

@@ -7,6 +7,9 @@ import org.junit.Test;
 
 import com.globant.topicthree.exerciseone.Product;
 import com.globant.topicthree.exerciseone.ShoppingCart;
+import com.globant.topicthree.exerciseone.ShoppingCartController;
+import com.globant.topicthree.exerciseone.ShoppingCartService;
+import com.globant.topicthree.exerciseone.ShoppingCartServiceFactory;
 
 import junit.framework.Assert;
 
@@ -18,6 +21,8 @@ import junit.framework.Assert;
  */
 public class ShoppingCartBehaviorTest {
 
+	private static final int PLAYADITO_ID = 001;
+
 	@Test
 	public void whenCreateAShoppingCartThenIsEmpty() {
 		List<Product> prodToAdd = new ArrayList<Product>();
@@ -28,40 +33,23 @@ public class ShoppingCartBehaviorTest {
 
 	@Test
 	public void whenAddAProductThenExistInCart() {
-		Product productOne = new Product();
-		ShoppingCart myShoppingCart = new ShoppingCart();
-		myShoppingCart.addProduct(productOne);
+		ShoppingCartService shoppingCartService = ShoppingCartServiceFactory.getShoppingCartController();
+		Product productOne = new Product(PLAYADITO_ID);
+		shoppingCartService.addProduct(productOne);
+		ShoppingCart shoppingCart = shoppingCartService.checkOut();
 
-		Assert.assertFalse("The cart is empty", myShoppingCart.getProducts().isEmpty());
+		Assert.assertFalse("The cart is empty", shoppingCart.getProducts().isEmpty());
 	}
 
 	@Test
 	public void whenDeleteAProductThenRemoveFromList() {
-		Product productOne = new Product();
-		ShoppingCart myShoppingCart = new ShoppingCart();
-		myShoppingCart.addProduct(productOne);
-		myShoppingCart.removeProduct(productOne);
+		ShoppingCartService shoppingCartService = ShoppingCartServiceFactory.getShoppingCartController();
+		Product productOne = new Product(PLAYADITO_ID);
+		shoppingCartService.addProduct(productOne);
+		shoppingCartService.removeProduct(productOne);
+		ShoppingCart shoppingCart = shoppingCartService.checkOut();
 
-		Assert.assertTrue("The product has not been removed", myShoppingCart.getProducts().isEmpty());
-	}
-
-	@Test
-	public void whenAddMoreThanFiveElementsThenAreNotIntroducedInTheCart() {
-		Product productOne = new Product();
-		Product productTwo = new Product();
-		Product productThree = new Product();
-		Product productFor = new Product();
-		Product productFive = new Product();
-		Product productSix = new Product();
-		ShoppingCart myShoppingCart = new ShoppingCart();
-		myShoppingCart.addProduct(productOne);
-		myShoppingCart.addProduct(productTwo);
-		myShoppingCart.addProduct(productThree);
-		myShoppingCart.addProduct(productFor);
-		myShoppingCart.addProduct(productFive);
-		myShoppingCart.addProduct(productSix);
-
-		Assert.assertEquals(5, myShoppingCart.getProducts().size());
+		Assert.assertTrue("The product has not been removed", shoppingCart.getProducts().isEmpty());
 	}
 
 }

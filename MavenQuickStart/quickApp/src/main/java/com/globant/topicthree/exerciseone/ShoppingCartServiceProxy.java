@@ -8,25 +8,25 @@ package com.globant.topicthree.exerciseone;
  */
 public class ShoppingCartServiceProxy implements ShoppingCartService {
 
-	private ShoppingCartService shoppingcartUtilities;
+	private ShoppingCartService shoppingcartController;
 
 	public ShoppingCartServiceProxy(ShoppingCartService shoppingcartService) throws InterruptedException {
-		Thread.sleep(1000); // Add delay throug the proxy.
-		this.shoppingcartUtilities = shoppingcartService;
-	}
-
-	public ShoppingCart getShoppingCart() {
-		return this.shoppingcartUtilities.getShoppingCart();
+		Thread.sleep(1000); // Simulate delay to network connection.
+		this.shoppingcartController = shoppingcartService;
 	}
 
 	public void addProduct(Product productToAdd) {
-		this.shoppingcartUtilities.addProduct(productToAdd);
+		this.shoppingcartController.addProduct(productToAdd);
 
 	}
 
 	public void removeProduct(Product productToDelete) {
-		this.shoppingcartUtilities.removeProduct(productToDelete);
+		this.shoppingcartController.removeProduct(productToDelete);
 
+	}
+
+	public ShoppingCart checkOut() {
+		return shoppingcartController.checkOut();
 	}
 
 }
