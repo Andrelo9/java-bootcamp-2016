@@ -1,7 +1,9 @@
 package com.globant.topicthree.exerciseone;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.log4j.Logger;
 
 /**
  * API implementation of UserService for virtual Shopping Cart (CRUD).
@@ -11,45 +13,45 @@ import java.util.List;
  */
 public class UserOperationsController implements UserService {
 
-	private List<User> userDAOList;
+	private static final Logger LOGGER = Logger.getLogger(UserOperationsController.class.getName());
+
+	private Map<Integer, User> userDAOMap;
 
 	public UserOperationsController() {
-		this.userDAOList = new ArrayList<User>();
+		this.userDAOMap = new HashMap<Integer, User>();
 	}
 
-	public void createUser(int id, String name) {
-		User userToCreate = new User(id, name);
-		this.userDAOList.add(userToCreate);
+	public void createUser(Integer id, String name) {
+		this.userDAOMap.put(id, new User(id, name));
 	}
 
-	public User readUser(int id) {
-		if (this.userDAOList != null) {
-			for (User user : this.userDAOList) {
-				if (user.getUserId() == id) {
-					return user;
-				}
+	public User readUser(Integer id) {
+		if (this.userDAOMap != null) {
+			try {
+				return this.userDAOMap.get(id);
+			} catch (NullPointerException exeption) {
+				LOGGER.debug("The user doesn't exist");
 			}
 		}
 		return null;
 	}
 
 	public void updateUser(User userToUpdate) {
-		if (this.userDAOList != null) {
-			for (User user : this.userDAOList) {
-				if (user.equals(userToUpdate)) {
-					int index = this.userDAOList.indexOf(user);
-					this.userDAOList.set(index, userToUpdate);
-				}
+		if (this.userDAOMap != null) {
+			try {
+				this.userDAOMap.put(userToUpdate.getUserId(), userToUpdate);
+			} catch (NullPointerException exeption) {
+				LOGGER.debug("The user doesn't exist");
 			}
 		}
 	}
 
-	public void deleteUser(int id) {
-		if (this.userDAOList != null) {
-			for (User user : this.userDAOList) {
-				if (user.getUserId() == id) {
-					this.userDAOList.remove(user);
-				}
+	public void deleteUser(Integer id) {
+		if (this.userDAOMap != null) {
+			try {
+				this.userDAOMap.remove(id);
+			} catch (NullPointerException exeption) {
+				LOGGER.debug("The user doesn't exist");
 			}
 		}
 	}

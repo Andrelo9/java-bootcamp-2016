@@ -10,7 +10,8 @@ import java.io.Serializable;
  */
 public class User implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -5470697922874404469L;
+
 	private int userId;
 	private String userName;
 
@@ -66,14 +67,18 @@ public class User implements Serializable {
 	/**
 	 * Compare two users
 	 * 
-	 * @param userToCompare
+	 * @param object
 	 * @return
 	 */
-	public boolean equals(User userToCompare) {
-		if (userToCompare != null) {
-			return this.userId == userToCompare.userId;
-		} else {
+	@Override
+	public boolean equals(Object object) {
+		if (object != null) {
 			return false;
+		} else if (!(object instanceof User)) {
+			return false;
+		} else {
+			User userToCompare = (User) object;
+			return this.userId == userToCompare.userId;
 		}
 	}
 

@@ -14,7 +14,7 @@ public interface UserService {
 	 * @POST
 	 * 
 	 */
-	public void createUser(int id, String name);
+	public void createUser(Integer id, String name);
 
 	/**
 	 * Read an user from a data structure.
@@ -24,7 +24,7 @@ public interface UserService {
 	 * @param id
 	 * @return
 	 */
-	public User readUser(int id);
+	public User readUser(Integer id);
 
 	/**
 	 * Update a user.
@@ -40,6 +40,6 @@ public interface UserService {
 	 * 
 	 * @DELETE
 	 */
-	public void deleteUser(int id);
+	public void deleteUser(Integer id);
 
 }
