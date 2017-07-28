@@ -27,11 +27,7 @@ public class UserOperationsController implements UserService {
 
 	public User readUser(Integer id) {
 		if (this.userDAOMap != null) {
-			try {
-				return this.userDAOMap.get(id);
-			} catch (NullPointerException exeption) {
-				LOGGER.debug("The user doesn't exist");
-			}
+			return this.userDAOMap.get(id);
 		}
 		return null;
 	}
@@ -48,11 +44,7 @@ public class UserOperationsController implements UserService {
 
 	public void deleteUser(Integer id) {
 		if (this.userDAOMap != null) {
-			try {
-				this.userDAOMap.remove(id);
-			} catch (NullPointerException exeption) {
-				LOGGER.debug("The user doesn't exist");
-			}
+			this.userDAOMap.remove(id);
 		}
 	}
 
