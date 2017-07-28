@@ -34,11 +34,7 @@ public class UserOperationsController implements UserService {
 
 	public void updateUser(User userToUpdate) {
 		if (this.userDAOMap != null) {
-			try {
-				this.userDAOMap.put(userToUpdate.getUserId(), userToUpdate);
-			} catch (NullPointerException exeption) {
-				LOGGER.debug("The user doesn't exist");
-			}
+			this.userDAOMap.put(userToUpdate.getUserId(), userToUpdate);
 		}
 	}
 
