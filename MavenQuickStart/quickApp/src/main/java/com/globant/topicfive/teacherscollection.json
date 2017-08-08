@@ -1,0 +1,47 @@
+[
+	{	
+		"firstName": "sebastian",
+		"lastName": "garofalo",
+		"birthDate": "1980-12-01",
+		"courses":[
+			{
+				"courseName":"programacion",
+			 	"hoursByWeek":"3"
+			},
+			{
+				"courseName":"algoritmos",
+			 	"hoursByWeek":"3"
+			}
+		]	
+	},
+	{
+		"firstName": "matias",
+		"lastName": "massigogge",
+		"birthDate": "1980-03-8",
+		"courses":[
+			{
+				"courseName":"diseño",
+			 	"hoursByWeek":"6"
+			}			
+		]	
+	},
+	{
+		"firstName": "cristian",
+		"lastName": "ebbens",
+		"birthDate": "1980-05-30",
+		"courses":[
+			{
+				"courseName":"algoritmos",
+			 	"hoursByWeek":"2"
+			},
+			{
+				"courseName":"programacion",
+			 	"hoursByWeek":"2"
+			},
+			{
+				"courseName":"diseño",
+			 	"hoursByWeek":"2"
+			}
+		]	
+	}
+]

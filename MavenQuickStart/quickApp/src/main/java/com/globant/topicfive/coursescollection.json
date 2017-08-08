@@ -1,0 +1,14 @@
+[
+	{	
+		"courseName": "programacion",				
+		"hoursByWeek": "6"
+	},
+	{
+		"courseName": "algoritmos",		
+		"hoursByWeek": "6"
+	},
+	{
+		"courseName": "diseño",		
+		"hoursByWeek": "6"
+	}
+]
