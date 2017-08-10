@@ -14,7 +14,7 @@ public class Note {
 	/**
 	 * @return the firstNote
 	 */
-	public float getFirstNote() {
+	public int getFirstNote() {
 		return firstNote;
 	}
 	

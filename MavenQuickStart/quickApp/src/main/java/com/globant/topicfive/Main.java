@@ -1,11 +1,16 @@
 package com.globant.topicfive;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
+import org.bson.Document;
+import org.bson.types.ObjectId;
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Morphia;
 import org.mongodb.morphia.query.QueryResults;
 
+import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
@@ -13,7 +18,7 @@ import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
 import com.mongodb.util.JSON;
 
-import morphiaentities.Course;
+import morphiaentities.Student;
 
 public class Main {
 
@@ -22,30 +27,43 @@ public class Main {
 
 	public static void main(String args[]) {		
 
-		String dbName = new String(HIGH_SCHOOL);
+		String dbName = HIGH_SCHOOL;
 		MongoClient mongoClient = new MongoClient("localhost", 27017);
-		DB db = mongoClient.getDB(dbName);
-		DBCollection collection = db.getCollection("courses");
-		String json = "[{\"courseName\": \"programacion\",\"hoursByWeek\": \"6\"},{\"courseName\": \"algoritmos\",\"hoursByWeek\": \"6\"},{\"courseName\": \"diseño\",\"hoursByWeek\": \"6\"}]";
-		List<DBObject> dbObject = (List<DBObject>) JSON.parse(json);
-		collection.insert(dbObject);
+		DB db = mongoClient.getDB(dbName);		
+		DBCollection collection = db.getCollection("students");
+		db.getCollection("students").drop();
+		Set<String> collections = db.getCollectionNames();
+
+		for (String collectionName : collections) {
+			System.out.println(collectionName);
+		}
+		String json = "[{\"registrationNumber\": 1,\"firstName\": \"andres\",\"lastName\": \"vaninetti\",\"birthDate\": \"1986-12-18\",\"courses\": [{\"courseName\": \"programacion\",	\"hoursByWeek\": \"6\"},{\"courseName\": \"algoritmos\",\"hoursByWeek\": \"6\"}],\"note\": {\"firstNote\": 7,\"secondNote\": 8,\"thirdNote\": 10,\"finalNote\": 8}}]";		
+		List<DBObject> dbObject = (List<DBObject>) JSON.parse(json);		
+		collection.insert(dbObject.get(0));		
 		
-		DBCursor cursorDocJSON = collection.find();
+		/*DBCursor cursorDocJSON = collection.find();
 		while (cursorDocJSON.hasNext()) {
 			System.out.println(cursorDocJSON.next());
-		}
+		}*/
 		
-		Morphia morphia = new Morphia();
+		/*BasicDBObject query = new BasicDBObject();
+		query.put("firstName", "andres");
+		DBCursor cur = collection.find(query);
+		while(cur.hasNext()) {
+		    System.out.println(cur.next());
+		}*/
+		
+		Morphia morphia = new Morphia();		
 		Datastore dataStore = morphia.createDatastore(mongoClient,dbName);
 		morphia.mapPackage(MORPHIAENTITIES);
+		//dataStore.save(collection);	
 		
-		CourseDAO coursesDao = new CourseDAO(mongoClient, morphia, HIGH_SCHOOL);
-		QueryResults<Course> results = coursesDao.getCourses(dataStore, coursesDao);		
+		StudentDAO studentDao = new StudentDAO(mongoClient, morphia, HIGH_SCHOOL);		
+		QueryResults<Student> results = studentDao.getStudents(dataStore, studentDao);		
 		
-		for (Course course:results) {
-			System.out.println(course.getHoursByWeek());
-		}
-		
+		for (Student students:results) {
+			System.out.println(students.getLastName());
+		}		
 		
 	}
 }

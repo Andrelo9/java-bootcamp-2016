@@ -1,6 +1,6 @@
 package morphiaentities;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import org.mongodb.morphia.annotations.Embedded;
 import org.mongodb.morphia.annotations.Entity;
@@ -14,7 +14,7 @@ public class Student extends BaseEntity{
 	private String birthDate;
 	
 	@Embedded
-	private List<Course> courses; 
+	private ArrayList<Course> courses; 
 	
 	@Embedded
 	private Note note;
@@ -74,6 +74,20 @@ public class Student extends BaseEntity{
 	 */
 	public void setBirthday(String birthday) {
 		this.birthDate = birthday;
+	}
+
+	/**
+	 * @return the courses
+	 */
+	public ArrayList<Course> getCourses() {
+		return courses;
+	}
+
+	/**
+	 * @param courses the courses to set
+	 */
+	public void setCourses(ArrayList<Course> courses) {
+		this.courses = courses;
 	}
 
 }
