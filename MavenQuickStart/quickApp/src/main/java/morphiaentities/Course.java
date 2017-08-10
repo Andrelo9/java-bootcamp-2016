@@ -2,6 +2,12 @@ package morphiaentities;
 
 import org.mongodb.morphia.annotations.Embedded;
 
+/**
+ * This class represent a course.
+ * 
+ * @author andres.vaninetti
+ *
+ */
 @Embedded
 public class Course {
 

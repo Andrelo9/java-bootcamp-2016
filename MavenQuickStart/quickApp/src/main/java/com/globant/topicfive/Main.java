@@ -80,7 +80,7 @@ public class Main {
 		dataStore.save(student1);	
 		
 		StudentDAO studentDao = new StudentDAO(mongoClient, morphia, HIGH_SCHOOL);		
-		QueryResults<Student> results = studentDao.getStudents(dataStore, studentDao);		
+		QueryResults<Student> results = studentDao.getStudentsByName(dataStore, studentDao);		
 		
 		for (Student students:results) {
 			System.out.println(students.getLastName());

@@ -5,6 +5,12 @@ import java.util.List;
 import org.mongodb.morphia.annotations.Embedded;
 import org.mongodb.morphia.annotations.Entity;
 
+/**
+ * This class represent a Student.
+ * 
+ * @author andres.vaninetti
+ *
+ */
 @Entity
 public class Student extends BaseEntity{
 	

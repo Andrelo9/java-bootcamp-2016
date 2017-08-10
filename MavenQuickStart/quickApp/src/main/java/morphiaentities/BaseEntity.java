@@ -5,6 +5,12 @@ import org.mongodb.morphia.annotations.Id;
 import org.mongodb.morphia.annotations.Property;
 import org.mongodb.morphia.annotations.Version;
 
+/**
+ * Base class to map entities.
+ * 
+ * @author andres.vaninetti
+ *
+ */
 public abstract class BaseEntity {
  
     @Id

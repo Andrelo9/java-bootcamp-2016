@@ -5,6 +5,12 @@ import java.util.ArrayList;
 import org.mongodb.morphia.annotations.Embedded;
 import org.mongodb.morphia.annotations.Entity;
 
+/**
+ * This class represent a teacher.
+ * 
+ * @author andres.vaninetti
+ *
+ */
 @Entity
 public class Teacher extends BaseEntity {
 

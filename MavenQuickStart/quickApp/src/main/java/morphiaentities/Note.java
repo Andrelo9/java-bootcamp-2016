@@ -2,6 +2,12 @@ package morphiaentities;
 
 import org.mongodb.morphia.annotations.Embedded;
 
+/**
+ * This class represent a Note.
+ * 
+ * @author andres.vaninetti
+ *
+ */
 @Embedded
 public class Note {
 	
