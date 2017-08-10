@@ -1,0 +1,86 @@
+[
+	{
+		"registrationNumber": 1,
+		"firstName": "andres",
+		"lastName": "vaninetti",
+		"birthDate": "1986-12-18",
+		"courses": [
+			{
+				"courseName": "programacion",
+				"hoursByWeek": "6"
+			},
+			{
+				"courseName": "algoritmos",
+				"hoursByWeek": "6"
+			}
+		],
+		"note": {
+			"firstNote": 7,
+			"secondNote": 8,
+			"thirdNote": 10,
+			"finalNote": 8
+		}
+	},
+	{
+		"registrationNumber": 2,
+		"firstName": "francisco",
+		"lastName": "vaninetti",
+		"birthDate": "1988-02-18",
+		"courses": [
+			{
+				"courseName": "diseño",
+				"hoursByWeek": "6"
+			},
+			{
+				"courseName": "algoritmos",
+				"hoursByWeek": "6"
+			}
+		],
+		"note": {
+			"firstNote": 2,
+			"secondNote": 6,
+			"thirdNote": 7,
+			"finalNote": 4.5
+		}
+	},
+	{
+		"registrationNumber": 3,
+		"firstName": "valentin",
+		"lastName": "vaninetti",
+		"birthDate": "1992-03-26",
+		"courses": [
+			{
+				"courseName": "programacion",
+				"hours_by_week": "6"
+			},
+			{
+				"courseName": "diseño",
+				"hoursByWeek": "6"
+			}
+		],
+		"note": {
+			"firstNote": 6,
+			"secondNote": 6,
+			"thirdNote": 6,
+			"finalNote": 6
+		}
+	},
+	{
+		"registrationNumber": 4,
+		"firstName": "aldo",
+		"lastName": "vaninetti",
+		"birthDate": "1967-12-25",
+		"courses": [
+			{
+				"courseName": "diseño",
+				"hoursByWeek": "6"
+			}
+		],
+		"note": {
+			"firstNote": 2,
+			"secondNote": 3,
+			"thirdNote": 1,
+			"finalNote": 2
+		}
+	}
+]
