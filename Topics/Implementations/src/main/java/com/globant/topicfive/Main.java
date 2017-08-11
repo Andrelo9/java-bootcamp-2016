@@ -55,7 +55,7 @@ public class Main {
 		Course programacion = new Course();
 		programacion.setCourseName("programacion");
 		programacion.setHoursByWeek(6);
-		
+		 
 		List<Course> courses = new ArrayList();
 		courses.add(programacion);
 		courses.add(algoritmos);
