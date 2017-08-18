@@ -1,4 +1,7 @@
-package com.globant.topicsix;
+package com.globant.finalproject.daos;
+
+import com.globant.finalproject.entities.Product;
+import com.globant.finalproject.entities.ShoppingCart;
 
 /**
  * This is the Shopping Cart API for manage his features. 
@@ -6,14 +9,14 @@ package com.globant.topicsix;
  * @author andres.vaninetti
  *
  */
-public interface ShoppingCartService {
+public interface ShoppingCartDAO {
 	
 	/**
 	 * Write in some data structure in memory in this case.
 	 * 
 	 * @return Shopping Cart
 	 */
-	public ShoppingCart checkOut();	
+	public void saveCart(int cartId, int userId, int productId, int productQuantity);	
 	
 	/**
 	 * Add a product to shopping cart.
