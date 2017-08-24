@@ -42,4 +42,20 @@ public interface ProductDAO {
 	 * @return
 	 */
 	public List<Product> getProduct(int productId);
+	
+	/**
+	 * Return all products that match with requested category
+	 * 
+	 * @param category
+	 * @return
+	 */
+	public List<Product> findProductsByCategory(String category);
+	
+	/**
+	 * Return all products that match with requested name
+	 * 
+	 * @param name
+	 * @return
+	 */
+	public List<Product> findProductsByName(String name);
 }

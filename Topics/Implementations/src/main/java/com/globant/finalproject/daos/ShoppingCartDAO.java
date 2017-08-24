@@ -1,35 +1,30 @@
 package com.globant.finalproject.daos;
 
-import com.globant.finalproject.entities.Product;
+import java.util.List;
+
 import com.globant.finalproject.entities.ShoppingCart;
 
 /**
- * This is the Shopping Cart API for manage his features. 
+ * This is the Shopping Cart API for manage his features.
  * 
  * @author andres.vaninetti
  *
  */
 public interface ShoppingCartDAO {
-	
+
 	/**
 	 * Write in some data structure in memory in this case.
 	 * 
 	 * @return Shopping Cart
 	 */
-	public void saveCart(int cartId, int userId, int productId, int productQuantity);	
-	
+	public void saveCart(int cartId, int cartcustomerId);
+
 	/**
-	 * Add a product to shopping cart.
+	 * Return information for required cart.
 	 * 
-	 * @param productToAdd
+	 * @param cartId
+	 * @return
 	 */
-	public void addProduct(Product productToAdd);
-	
-	/**
-	 * Delete a product from the shopping cart.
-	 * 
-	 * @param productToDelete
-	 */
-	public void removeProduct(Product productToDelete);
+	public List<ShoppingCart> getCart(int cartId);
 
 }

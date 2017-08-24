@@ -20,27 +20,39 @@ public class ProductDAOImplementation implements ProductDAO {
 	}
 
 	@Override
-	public void addNewProduct(int productID, String productName, String productCategory, Float productPrice) {
-		String query = "INSERT INTO products VALUES (?, ?, ?, ?)";
-		this.jdbcTemplate.update(query, productID, productName, productCategory, productPrice);
+	public void addNewProduct(int productId, String productName, String productCategory, Float productPrice) {
+		String query = "INSERT INTO product VALUES (?, ?, ?, ?)";
+		this.jdbcTemplate.update(query, productId, productName, productCategory, productPrice);
 	}
 
 	@Override
 	public void deleteProduct(int productID) {
-		String query = "DELETE FROM products WHERE product_id = ?";
+		String query = "DELETE FROM product WHERE product_id = ?";
 		this.jdbcTemplate.update(query, productID);
 	}
 
 	@Override
 	public List<Product> getAllProducts() {
-		String query = "SELECT * FROM products";
+		String query = "SELECT * FROM product";
 		return this.jdbcTemplate.query(query, new Object[] {}, new BeanPropertyRowMapper<Product>(Product.class));
 	}
 
 	@Override
 	public List<Product> getProduct(int productID) {
-		String query = "SELECT * FROM products WHERE product_id = ?";
+		String query = "SELECT * FROM product WHERE product_id = ?";
 		return this.jdbcTemplate.query(query, new Object[] { productID }, new BeanPropertyRowMapper<Product>(Product.class));
+	}
+
+	@Override
+	public List<Product> findProductsByCategory(String category) {
+		String query = "SELECT * FROM product WHERE product_category = ?";
+		return this.jdbcTemplate.query(query, new Object[] { category }, new BeanPropertyRowMapper<Product>(Product.class));
+	}
+
+	@Override
+	public List<Product> findProductsByName(String name) {
+		String query = "SELECT * FROM product WHERE product_name = ?";
+		return this.jdbcTemplate.query(query, new Object[] { name }, new BeanPropertyRowMapper<Product>(Product.class));
 	}
 
 }

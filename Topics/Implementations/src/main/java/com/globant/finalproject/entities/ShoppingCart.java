@@ -18,69 +18,56 @@ public class ShoppingCart {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private int cartId;
 
-	private int userId;
-	private int productId;
-	private int productQuantity;
+	private int cartcustomerId;
 
 	/**
-	 * @return the id
+	 * @return the cartId
 	 */
-	public int getId() {
-		return id;
+	public int getCartId() {
+		return cartId;
 	}
 
 	/**
-	 * @param id
-	 *            the id to set
+	 * @param cartId
+	 *            the cartId to set
 	 */
-	public void setId(int id) {
-		this.id = id;
+	public void setCartId(int cartId) {
+		this.cartId = cartId;
 	}
 
 	/**
-	 * @return the userId
+	 * @return the cartcustomerId
 	 */
-	public int getUserId() {
-		return userId;
+	public int getCartcustomerId() {
+		return cartcustomerId;
 	}
 
 	/**
-	 * @param userId
-	 *            the userId to set
+	 * @param cartcustomerId
+	 *            the cartcustomerId to set
 	 */
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setCartcustomerId(int cartcustomerId) {
+		this.cartcustomerId = cartcustomerId;
 	}
 
 	/**
-	 * @return the productId
+	 * Compare two carts
+	 * 
+	 * @param object
+	 * @return
 	 */
-	public int getProductId() {
-		return productId;
+	@Override
+	public boolean equals(Object object) {
+		if (object != null) {
+			return false;
+		} else if (!(object instanceof ShoppingCart)) {
+			return false;
+		} else {
+			ShoppingCart shoppingCartToCompare = (ShoppingCart) object;
+			return this.cartId == shoppingCartToCompare.cartId;
+		}
 	}
 
-	/**
-	 * @param productId
-	 *            the productId to set
-	 */
-	public void setProductId(int productId) {
-		this.productId = productId;
-	}
-
-	/**
-	 * @return the productQuantity
-	 */
-	public int getProductQuantity() {
-		return productQuantity;
-	}
-
-	/**
-	 * @param productQuantity
-	 *            the productQuantity to set
-	 */
-	public void setProductQuantity(int productQuantity) {
-		this.productQuantity = productQuantity;
-	}
 }
