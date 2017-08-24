@@ -5,7 +5,8 @@ import java.util.List;
 import com.globant.finalproject.entities.Product;
 
 /**
- * Base API for CRUD product operations.
+ * This class contains all possibles actions to do with Products in the
+ * application like CRUD operations and rest calls.
  * 
  * @author andres.vaninetti
  *
@@ -42,7 +43,7 @@ public interface ProductDAO {
 	 * @return
 	 */
 	public List<Product> getProduct(int productId);
-	
+
 	/**
 	 * Return all products that match with requested category
 	 * 
@@ -50,7 +51,7 @@ public interface ProductDAO {
 	 * @return
 	 */
 	public List<Product> findProductsByCategory(String category);
-	
+
 	/**
 	 * Return all products that match with requested name
 	 * 

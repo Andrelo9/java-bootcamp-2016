@@ -17,8 +17,9 @@ import com.globant.finalproject.entities.CartItem;
 
 
 /**
- * API implementation of UserService for virtual Cart item management (CRUD).
- * 
+ * This class contains information and definition about our Cart Item rest calls.
+ * We've defined rest methods, parameters and path to manage the web services.
+ *
  * @author andres.vaninetti
  *
  */

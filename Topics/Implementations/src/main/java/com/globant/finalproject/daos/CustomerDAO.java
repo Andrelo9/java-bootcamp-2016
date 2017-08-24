@@ -6,7 +6,8 @@ import java.util.List;
 import com.globant.finalproject.entities.Customer;
 
 /**
- * Base API for CRUD user operations.
+ * This class contains all possibles actions to do with the Customers in the
+ * application like CRUD operations and rest calls.
  * 
  * @author andres.vaninetti
  *

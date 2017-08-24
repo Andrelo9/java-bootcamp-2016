@@ -15,6 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.globant.finalproject.daos.ShoppingCartDAO;
 import com.globant.finalproject.entities.ShoppingCart;
 
+/**
+ * This class contains information and definition about our Carts rest calls.
+ * We've defined rest methods, parameters and path to manage web services.
+ * 
+ * @author andres.vaninetti
+ *
+ */
 @RestController
 @RequestMapping(path="/shoppingCart")
 public class CartController {
@@ -27,17 +34,17 @@ public class CartController {
 	//****************************CART CONTROLLER******************************//
 	//*************************************************************************//
 		
-		@RequestMapping(value = "/cart/addCart", method = RequestMethod.POST)	
-		public ResponseEntity<String> newProduct(@RequestBody @RequestParam int cartId,
-															  @RequestParam int cartcustomerId) throws SQLException {
-			shoppingCartDAO.saveCart(cartId,
-									 cartcustomerId);
-			return new ResponseEntity<String> ("Cart added", HttpStatus.CREATED);		
-		}
-		
-		@RequestMapping(value = "/cart/getCart", method = RequestMethod.GET)
-		public ResponseEntity<List<ShoppingCart>> getCart(@RequestBody @RequestParam int cartId) {
-			return new ResponseEntity<List<ShoppingCart>>(shoppingCartDAO.getCart(cartId), HttpStatus.OK);
-		}
-		
+	@RequestMapping(value = "/cart/addCart", method = RequestMethod.POST)	
+	public ResponseEntity<String> newProduct(@RequestBody @RequestParam int cartId,
+														  @RequestParam int cartcustomerId) throws SQLException {
+		shoppingCartDAO.saveCart(cartId,
+								 cartcustomerId);
+		return new ResponseEntity<String> ("Cart added", HttpStatus.CREATED);		
+	}
+	
+	@RequestMapping(value = "/cart/getCart", method = RequestMethod.GET)
+	public ResponseEntity<List<ShoppingCart>> getCart(@RequestBody @RequestParam int cartId) {
+		return new ResponseEntity<List<ShoppingCart>>(shoppingCartDAO.getCart(cartId), HttpStatus.OK);
+	}
+	
 }

@@ -4,15 +4,22 @@ import java.util.List;
 
 import com.globant.finalproject.entities.CartItem;
 
+/**
+ * This class contains all possibles actions to do with Cart items in the
+ * application.
+ * 
+ * @author andres.vaninetti
+ *
+ */
 public interface CartItemDAO {
-	
+
 	/**
-	 * Delete a product from the Cart items.
+	 * Delete a product from the Cart items like CRUD operations and rest calls.
 	 * 
 	 * @param productToDelete
 	 */
 	public void addProduct(int cartitemId, int cartitemproductId, int cartitemproductQuantity);
-	
+
 	/**
 	 * Delete a product from the Cart items.
 	 * 

@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * Entity class for customers.
+ * Entity class for represent Customers.
  * 
  * @author andres.vaninetti
  *

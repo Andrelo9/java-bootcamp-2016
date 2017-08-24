@@ -5,7 +5,8 @@ import java.util.List;
 import com.globant.finalproject.entities.ShoppingCart;
 
 /**
- * This is the Shopping Cart API for manage his features.
+ * This class contains all possibles actions to do with Shopping Cart in the
+ * application like CRUD operations and rest calls.
  * 
  * @author andres.vaninetti
  *

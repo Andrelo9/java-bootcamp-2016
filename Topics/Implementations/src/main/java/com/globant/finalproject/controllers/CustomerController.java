@@ -15,6 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.globant.finalproject.daos.CustomerDAO;
 import com.globant.finalproject.entities.Customer;
 
+/**
+ * This class contains information and definition about our Customers rest calls.
+ * We've defined rest methods, parameters and path to manage the web services.
+ * 
+ * @author andres.vaninetti
+ *
+ */
 @RestController
 @RequestMapping(path="/shoppingCart")
 public class CustomerController {

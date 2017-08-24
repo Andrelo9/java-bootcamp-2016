@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * This class represent a product, and is used to populate a shopping cart.
+ * Entity class to represent Products.
  * 
  * @author andres.vaninetti
  *

@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * This entity represent a virtual Shopping Cart. of this.
+ * This entity represent a virtual Shopping Cart
  * 
  * @author andres.vaninetti
  *

@@ -6,6 +6,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * Entity class to represent a Cart Item.
+ * 
+ * @author andres.vaninetti
+ *
+ */
 @Entity
 @Table(name = "cartitem")
 public class CartItem {
@@ -25,7 +31,8 @@ public class CartItem {
 	}
 
 	/**
-	 * @param cartitemId the cartitemId to set
+	 * @param cartitemId
+	 *            the cartitemId to set
 	 */
 	public void setCartitemId(int cartitemId) {
 		this.cartitemId = cartitemId;
@@ -77,5 +84,5 @@ public class CartItem {
 			CartItem cartItemToCompare = (CartItem) object;
 			return this.cartitemId == cartItemToCompare.cartitemId;
 		}
-	}	
+	}
 }
