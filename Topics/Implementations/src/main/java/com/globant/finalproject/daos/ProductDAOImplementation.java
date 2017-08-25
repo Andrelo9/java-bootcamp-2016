@@ -21,7 +21,7 @@ public class ProductDAOImplementation implements ProductDAO {
 
 	@Override
 	public void addNewProduct(int productId, String productName, String productCategory, Float productPrice) {
-		String query = "INSERT INTO product VALUES (?, ?, ?, ?)";
+		String query = "INSERT INTO product VALUES(?, ?, ?, ?)";
 		this.jdbcTemplate.update(query, productId, productName, productCategory, productPrice);
 	}
 

@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.globant.finalproject.daos.CustomerDAO;
 import com.globant.finalproject.entities.Customer;
 
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+
 /**
  * This class contains information and definition about our Customers rest calls.
  * We've defined rest methods, parameters and path to manage the web services.
@@ -34,7 +37,10 @@ public class CustomerController {
 	//****************************CUSTOMER CONTROLLER**************************//
 	//*************************************************************************//
 		
-		@RequestMapping(value = "/customer/registration", method = RequestMethod.POST)	
+		@RequestMapping(value = "/customer/registration", method = RequestMethod.POST)
+		@ApiResponses({@ApiResponse(code = 500, message = "Table 'customer' not exists'"),
+					   @ApiResponse(code = 400, message = "Bad Request"),					   
+					   @ApiResponse(code = 200, message = "customer registered")})
 		public ResponseEntity<String> customerRegistration(@RequestBody @RequestParam int customerId,
 														   @RequestParam String customerNickname,
 														   @RequestParam String customerFirstname,
@@ -57,6 +63,9 @@ public class CustomerController {
 		}	
 		
 		@RequestMapping(value = "/customer/deleteCustomer", method = RequestMethod.DELETE)
+		@ApiResponses({@ApiResponse(code = 500, message = "Table 'customer' not exists'"),
+			   		   @ApiResponse(code = 400, message = "Bad Request"),					   
+			   		   @ApiResponse(code = 200, message = "customer removed")})
 		public ResponseEntity<String> deleteCustomer(@RequestBody @RequestParam int customerId) {
 			customerDao.deleteCustomer(customerId);
 			return new ResponseEntity<String> ("Customer deleted", HttpStatus.OK);

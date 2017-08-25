@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.globant.finalproject.daos.ProductDAO;
 import com.globant.finalproject.entities.Product;
 
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+
 /**
  * This class contains information and definition about our Products rest calls.
  * We've defined rest methods, parameters and path to manage the web services.
@@ -34,7 +37,10 @@ public class ProductController {
 	//****************************PRODUCT CONTROLLER***************************//
 	//*************************************************************************//
 		
-	@RequestMapping(value = "/product/productRegistration", method = RequestMethod.POST)	
+	@RequestMapping(value = "/product/productRegistration", method = RequestMethod.POST)
+	@ApiResponses({@ApiResponse(code = 500, message = "Table 'product' not exists'"),
+				   @ApiResponse(code = 400, message = "Bad Request"),					   
+				   @ApiResponse(code = 200, message = "product registered")})
 	public ResponseEntity<String> newProduct(@RequestBody @RequestParam int productId,
 														  @RequestParam String productName,
 														  @RequestParam String productCategory,
@@ -47,6 +53,9 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value = "/product/deleteProduct", method = RequestMethod.DELETE)
+	@ApiResponses({@ApiResponse(code = 500, message = "Table 'product' not exists'"),
+		   		   @ApiResponse(code = 400, message = "Bad Request"),					   
+		   		   @ApiResponse(code = 200, message = "product deleted")})
 	public ResponseEntity<String> deleteProduct(@RequestBody @RequestParam int id) {
 		productDao.deleteProduct(id);
 		return new ResponseEntity<String> ("Product deleted", HttpStatus.OK);

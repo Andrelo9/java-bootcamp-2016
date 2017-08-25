@@ -21,7 +21,7 @@ public class CartItemDAOImplementation implements CartItemDAO {
 
 	@Override
 	public void addProduct(int cartitemId, int cartitemproductId, int cartitemproductQuantity) {
-		String query = "INSERT INTO cartitem VALUES (?, ?, ?)";
+		String query = "INSERT INTO cartitem VALUES(?, ?, ?)";
 		this.jdbcTemplate.update(query, cartitemId, cartitemproductId, cartitemproductQuantity);
 	}
 
@@ -34,7 +34,7 @@ public class CartItemDAOImplementation implements CartItemDAO {
 
 	@Override
 	public List<CartItem> getCartItem(int cartitemId) {
-		String query = "SELECT * FROM cartItem WHERE cartitem_id = ?";
+		String query = "SELECT * FROM cartitem WHERE cartitem_id = ?";
 		return this.jdbcTemplate.query(query, new Object[] { cartitemId }, new BeanPropertyRowMapper<CartItem>(CartItem.class));
 	}
 

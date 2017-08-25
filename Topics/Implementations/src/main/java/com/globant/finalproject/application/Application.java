@@ -13,7 +13,8 @@ import org.springframework.context.annotation.ComponentScan;
  *
  */
 @SpringBootApplication
-@ComponentScan(basePackages = { "com.globant.finalproject.controllers", "com.globant.finalproject.daos" })
+@ComponentScan(basePackages = { "com.globant.finalproject.controllers", "com.globant.finalproject.daos",
+		"com.globant.finalproject.entities"})
 public class Application {
 
 	public static void main(String[] args) {

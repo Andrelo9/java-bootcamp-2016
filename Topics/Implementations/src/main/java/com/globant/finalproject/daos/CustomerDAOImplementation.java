@@ -23,7 +23,7 @@ public class CustomerDAOImplementation implements CustomerDAO {
 	@Override
 	public void customerRegistration(int customerId, String customerNickname, String customerFirstname, String customerLastname,
 			String customerPassword, String customerEmail) throws SQLException {
-		String query = "INSERT INTO customer VALUES (?, ?, ?, ?, ?, ?)";
+		String query = "INSERT INTO customer VALUES(?, ?, ?, ?, ?, ?)";
 		this.jdbcTemplate.update(query, customerId, customerNickname, customerFirstname, customerLastname, customerPassword, customerEmail);
 	}
 

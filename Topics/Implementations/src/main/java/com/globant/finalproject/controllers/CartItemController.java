@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.globant.finalproject.daos.CartItemDAO;
 import com.globant.finalproject.entities.CartItem;
 
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+
 
 /**
  * This class contains information and definition about our Cart Item rest calls.
@@ -36,7 +39,10 @@ public class CartItemController {
 	//****************************CART ITEMS CONTROLLER************************//
 	//*************************************************************************//
 	
-	@RequestMapping(value = "/cart/cartItems/addProduct", method = RequestMethod.POST)	
+	@RequestMapping(value = "/cart/cartItems/addProduct", method = RequestMethod.POST)
+	@ApiResponses({@ApiResponse(code = 500, message = "Duplicate entry for primary key"),
+				   @ApiResponse(code = 500, message = "Table 'cartitem' not exists'"),
+				   @ApiResponse(code = 200, message = "Product added to CartItem")})
 	public ResponseEntity<String> addProduct(@RequestBody @RequestParam int cartitemId,
 														  @RequestParam int cartitemproductId,
 														  @RequestParam int cartitemproductQuantity) throws SQLException {
@@ -46,7 +52,10 @@ public class CartItemController {
 		return new ResponseEntity<String> ("Product added to cart items", HttpStatus.CREATED);		
 	}
 	
-	@RequestMapping(value = "/cart/cartItems/removeProduct", method = RequestMethod.DELETE)	
+	@RequestMapping(value = "/cart/cartItems/removeProduct", method = RequestMethod.DELETE)
+	@ApiResponses({@ApiResponse(code = 400, message = "Bad Request"),
+		   		   @ApiResponse(code = 500, message = "Table 'cartitem' not exists'"),
+		   		   @ApiResponse(code = 200, message = "Product removed from Cart Items")})
 	public ResponseEntity<String> removeProduct(@RequestBody @RequestParam int cartitemId) {
 		cartItemDAO.removeProduct(cartitemId);
 		return new ResponseEntity<String> ("Product deleted from cart item", HttpStatus.OK);
