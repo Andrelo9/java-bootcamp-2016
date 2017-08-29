@@ -4,6 +4,9 @@ import java.util.List;
 
 import org.junit.Test;
 
+import com.globant.topictwo.exerciseone.CustomFile;
+import com.globant.topictwo.exerciseone.FileList;
+
 import junit.framework.Assert;
 
 /**
