@@ -1,5 +1,12 @@
 package com.globant.finalproject.controllers;
 
+import static com.globant.finalproject.endpoints.ApiEndpoints.CUSTOMER_BUY_CART;
+import static com.globant.finalproject.endpoints.ApiEndpoints.CUSTOMER_DELETE_CUSTOMER;
+import static com.globant.finalproject.endpoints.ApiEndpoints.CUSTOMER_GET_ALLCUSTOMER;
+import static com.globant.finalproject.endpoints.ApiEndpoints.CUSTOMER_GET_CUSTOMER;
+import static com.globant.finalproject.endpoints.ApiEndpoints.CUSTOMER_REGISTRATION;
+import static com.globant.finalproject.endpoints.ApiEndpoints.SHOPPINGCART;
+
 import java.sql.SQLException;
 import java.util.List;
 
@@ -17,13 +24,6 @@ import com.globant.finalproject.entities.Customer;
 
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-
-import static com.globant.finalproject.enumerates.ApiEndpoints.SHOPPINGCART;
-import static com.globant.finalproject.enumerates.ApiEndpoints.CUSTOMER_REGISTRATION;
-import static com.globant.finalproject.enumerates.ApiEndpoints.CUSTOMER_GET_CUSTOMER;
-import static com.globant.finalproject.enumerates.ApiEndpoints.CUSTOMER_GET_ALLCUSTOMER;
-import static com.globant.finalproject.enumerates.ApiEndpoints.CUSTOMER_DELETE_CUSTOMER;
-import static com.globant.finalproject.enumerates.ApiEndpoints.CUSTOMER_BUY_CART;
 
 /**
  * This class contains information and definition about our Customers rest calls.

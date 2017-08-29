@@ -1,5 +1,13 @@
 package com.globant.finalproject.controllers;
 
+import static com.globant.finalproject.endpoints.ApiEndpoints.PRODUCT_DELETE;
+import static com.globant.finalproject.endpoints.ApiEndpoints.PRODUCT_GET_ALLPRODUCT;
+import static com.globant.finalproject.endpoints.ApiEndpoints.PRODUCT_GET_BYCATEGORY;
+import static com.globant.finalproject.endpoints.ApiEndpoints.PRODUCT_GET_BYNAME;
+import static com.globant.finalproject.endpoints.ApiEndpoints.PRODUCT_GET_PRODUCT;
+import static com.globant.finalproject.endpoints.ApiEndpoints.PRODUCT_REGISTRATION;
+import static com.globant.finalproject.endpoints.ApiEndpoints.SHOPPINGCART;
+
 import java.sql.SQLException;
 import java.util.List;
 
@@ -17,14 +25,6 @@ import com.globant.finalproject.entities.Product;
 
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-
-import static com.globant.finalproject.enumerates.ApiEndpoints.SHOPPINGCART;
-import static com.globant.finalproject.enumerates.ApiEndpoints.PRODUCT_DELETE;
-import static com.globant.finalproject.enumerates.ApiEndpoints.PRODUCT_GET_ALLPRODUCT;
-import static com.globant.finalproject.enumerates.ApiEndpoints.PRODUCT_GET_BYCATEGORY;
-import static com.globant.finalproject.enumerates.ApiEndpoints.PRODUCT_GET_BYNAME;
-import static com.globant.finalproject.enumerates.ApiEndpoints.PRODUCT_GET_PRODUCT;
-import static com.globant.finalproject.enumerates.ApiEndpoints.PRODUCT_REGISTRATION;
 
 /**
  * This class contains information and definition about our Products rest calls.

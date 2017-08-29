@@ -1,5 +1,9 @@
 package com.globant.finalproject.controllers;
 
+import static com.globant.finalproject.endpoints.ApiEndpoints.CART_ADD;
+import static com.globant.finalproject.endpoints.ApiEndpoints.CART_GET;
+import static com.globant.finalproject.endpoints.ApiEndpoints.SHOPPINGCART;
+
 import java.sql.SQLException;
 import java.util.List;
 
@@ -17,10 +21,6 @@ import com.globant.finalproject.entities.ShoppingCart;
 
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-
-import static com.globant.finalproject.enumerates.ApiEndpoints.SHOPPINGCART;
-import static com.globant.finalproject.enumerates.ApiEndpoints.CART_ADD;
-import static com.globant.finalproject.enumerates.ApiEndpoints.CART_GET;
 
 /**
  * This class contains information and definition about our Carts rest calls.

@@ -1,4 +1,4 @@
-package com.globant.finalproject.enumerates;
+package com.globant.finalproject.endpoints;
 
 public final class ApiEndpoints {
 
