@@ -18,6 +18,10 @@ import com.globant.finalproject.entities.CartItem;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
+import static com.globant.finalproject.enumerates.ApiEndpoints.SHOPPINGCART;
+import static com.globant.finalproject.enumerates.ApiEndpoints.CARTITEM_ADD;
+import static com.globant.finalproject.enumerates.ApiEndpoints.CARTITEM_GET;
+import static com.globant.finalproject.enumerates.ApiEndpoints.CARTITEM_REMOVE;
 
 /**
  * This class contains information and definition about our Cart Item rest calls.
@@ -27,7 +31,7 @@ import io.swagger.annotations.ApiResponses;
  *
  */
 @RestController
-@RequestMapping(path="/shoppingCart")
+@RequestMapping(path = SHOPPINGCART)
 public class CartItemController {	
 	
 	@Autowired
@@ -39,7 +43,7 @@ public class CartItemController {
 	//****************************CART ITEMS CONTROLLER************************//
 	//*************************************************************************//
 	
-	@RequestMapping(value = "/cart/cartItems/addProduct", method = RequestMethod.POST)
+	@RequestMapping(value = CARTITEM_ADD, method = RequestMethod.POST)
 	@ApiResponses({@ApiResponse(code = 500, message = "Duplicate entry for primary key"),
 				   @ApiResponse(code = 500, message = "Table 'cartitem' not exists'"),
 				   @ApiResponse(code = 200, message = "Product added to CartItem")})
@@ -52,7 +56,7 @@ public class CartItemController {
 		return new ResponseEntity<String> ("Product added to cart items", HttpStatus.CREATED);		
 	}
 	
-	@RequestMapping(value = "/cart/cartItems/removeProduct", method = RequestMethod.DELETE)
+	@RequestMapping(value = CARTITEM_GET, method = RequestMethod.DELETE)
 	@ApiResponses({@ApiResponse(code = 400, message = "Bad Request"),
 		   		   @ApiResponse(code = 500, message = "Table 'cartitem' not exists'"),
 		   		   @ApiResponse(code = 200, message = "Product removed from Cart Items")})
@@ -61,7 +65,7 @@ public class CartItemController {
 		return new ResponseEntity<String> ("Product deleted from cart item", HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/cart/cartItems/getCartItem", method = RequestMethod.GET)
+	@RequestMapping(value = CARTITEM_REMOVE, method = RequestMethod.GET)
 	public ResponseEntity<List<CartItem>> getCartItem(@RequestBody @RequestParam int cartitemId) {
 		return new ResponseEntity<List<CartItem>>(cartItemDAO.getCartItem(cartitemId), HttpStatus.OK);
 	}	

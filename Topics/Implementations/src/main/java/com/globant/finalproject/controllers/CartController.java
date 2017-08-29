@@ -18,6 +18,10 @@ import com.globant.finalproject.entities.ShoppingCart;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
+import static com.globant.finalproject.enumerates.ApiEndpoints.SHOPPINGCART;
+import static com.globant.finalproject.enumerates.ApiEndpoints.CART_ADD;
+import static com.globant.finalproject.enumerates.ApiEndpoints.CART_GET;
+
 /**
  * This class contains information and definition about our Carts rest calls.
  * We've defined rest methods, parameters and path to manage web services.
@@ -26,7 +30,7 @@ import io.swagger.annotations.ApiResponses;
  *
  */
 @RestController
-@RequestMapping(path="/shoppingCart")
+@RequestMapping(path = SHOPPINGCART)
 public class CartController {
 	
 	@Autowired
@@ -37,7 +41,7 @@ public class CartController {
 	//****************************CART CONTROLLER******************************//
 	//*************************************************************************//
 		
-	@RequestMapping(value = "/cart/addCart", method = RequestMethod.POST)
+	@RequestMapping(value = CART_ADD, method = RequestMethod.POST)
 	@ApiResponses({@ApiResponse(code = 500, message = "Duplicate entry for primary key"),
 				   @ApiResponse(code = 500, message = "Table 'shoppingcart' not exists'"),
 				   @ApiResponse(code = 200, message = "Cart added")})	
@@ -48,7 +52,7 @@ public class CartController {
 		return new ResponseEntity<String> ("Cart added", HttpStatus.CREATED);		
 	}
 	
-	@RequestMapping(value = "/cart/getCart", method = RequestMethod.GET)
+	@RequestMapping(value = CART_GET, method = RequestMethod.GET)
 	public ResponseEntity<List<ShoppingCart>> getCart(@RequestBody @RequestParam int cartId) {
 		return new ResponseEntity<List<ShoppingCart>>(shoppingCartDAO.getCart(cartId), HttpStatus.OK);
 	}

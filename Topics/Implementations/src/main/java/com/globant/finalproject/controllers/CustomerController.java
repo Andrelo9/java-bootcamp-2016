@@ -18,6 +18,13 @@ import com.globant.finalproject.entities.Customer;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
+import static com.globant.finalproject.enumerates.ApiEndpoints.SHOPPINGCART;
+import static com.globant.finalproject.enumerates.ApiEndpoints.CUSTOMER_REGISTRATION;
+import static com.globant.finalproject.enumerates.ApiEndpoints.CUSTOMER_GET_CUSTOMER;
+import static com.globant.finalproject.enumerates.ApiEndpoints.CUSTOMER_GET_ALLCUSTOMER;
+import static com.globant.finalproject.enumerates.ApiEndpoints.CUSTOMER_DELETE_CUSTOMER;
+import static com.globant.finalproject.enumerates.ApiEndpoints.CUSTOMER_BUY_CART;
+
 /**
  * This class contains information and definition about our Customers rest calls.
  * We've defined rest methods, parameters and path to manage the web services.
@@ -26,7 +33,7 @@ import io.swagger.annotations.ApiResponses;
  *
  */
 @RestController
-@RequestMapping(path="/shoppingCart")
+@RequestMapping(path = SHOPPINGCART)
 public class CustomerController {
 	
 	@Autowired	
@@ -37,7 +44,7 @@ public class CustomerController {
 	//****************************CUSTOMER CONTROLLER**************************//
 	//*************************************************************************//
 		
-		@RequestMapping(value = "/customer/registration", method = RequestMethod.POST)
+		@RequestMapping(value = CUSTOMER_REGISTRATION, method = RequestMethod.POST)
 		@ApiResponses({@ApiResponse(code = 500, message = "Table 'customer' not exists'"),
 					   @ApiResponse(code = 400, message = "Bad Request"),					   
 					   @ApiResponse(code = 200, message = "customer registered")})
@@ -57,12 +64,12 @@ public class CustomerController {
 		}
 		
 		
-		@RequestMapping(value = "/customer/getCustomer", method = RequestMethod.GET)
+		@RequestMapping(value = CUSTOMER_GET_CUSTOMER, method = RequestMethod.GET)
 		public ResponseEntity<List<Customer>> getCustomer(@RequestBody @RequestParam int customerId) {
 			return new ResponseEntity<List<Customer>>(customerDao.getCustomer(customerId), HttpStatus.OK);
 		}	
 		
-		@RequestMapping(value = "/customer/deleteCustomer", method = RequestMethod.DELETE)
+		@RequestMapping(value = CUSTOMER_DELETE_CUSTOMER, method = RequestMethod.DELETE)
 		@ApiResponses({@ApiResponse(code = 500, message = "Table 'customer' not exists'"),
 			   		   @ApiResponse(code = 400, message = "Bad Request"),					   
 			   		   @ApiResponse(code = 200, message = "customer removed")})
@@ -71,12 +78,12 @@ public class CustomerController {
 			return new ResponseEntity<String> ("Customer deleted", HttpStatus.OK);
 		}
 		
-		@RequestMapping(value = "/customer/getAllCustomers", method = RequestMethod.GET)
+		@RequestMapping(value = CUSTOMER_GET_ALLCUSTOMER, method = RequestMethod.GET)
 		public ResponseEntity<List<Customer>> getAllCustomers() {
 			return new ResponseEntity<List<Customer>>(customerDao.getAllCustomers(), HttpStatus.OK);
 		}
 		
-		@RequestMapping(value = "/customer/buyCart", method = RequestMethod.PUT)
+		@RequestMapping(value = CUSTOMER_BUY_CART, method = RequestMethod.PUT)
 		public ResponseEntity<String> buyShoppingCart(@RequestBody @RequestParam int cartId) {
 			customerDao.buyShoppingCart(cartId);
 			return new ResponseEntity<String>("Succesful transaction", HttpStatus.OK);
