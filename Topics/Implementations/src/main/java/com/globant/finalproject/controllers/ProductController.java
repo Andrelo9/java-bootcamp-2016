@@ -18,6 +18,14 @@ import com.globant.finalproject.entities.Product;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
+import static com.globant.finalproject.enumerates.ApiEndpoints.SHOPPINGCART;
+import static com.globant.finalproject.enumerates.ApiEndpoints.PRODUCT_DELETE;
+import static com.globant.finalproject.enumerates.ApiEndpoints.PRODUCT_GET_ALLPRODUCT;
+import static com.globant.finalproject.enumerates.ApiEndpoints.PRODUCT_GET_BYCATEGORY;
+import static com.globant.finalproject.enumerates.ApiEndpoints.PRODUCT_GET_BYNAME;
+import static com.globant.finalproject.enumerates.ApiEndpoints.PRODUCT_GET_PRODUCT;
+import static com.globant.finalproject.enumerates.ApiEndpoints.PRODUCT_REGISTRATION;
+
 /**
  * This class contains information and definition about our Products rest calls.
  * We've defined rest methods, parameters and path to manage the web services.
@@ -26,7 +34,7 @@ import io.swagger.annotations.ApiResponses;
  *
  */
 @RestController
-@RequestMapping(path="/shoppingCart")
+@RequestMapping(path = SHOPPINGCART)
 public class ProductController {
 	
 	@Autowired
@@ -37,7 +45,7 @@ public class ProductController {
 	//****************************PRODUCT CONTROLLER***************************//
 	//*************************************************************************//
 		
-	@RequestMapping(value = "/product/productRegistration", method = RequestMethod.POST)
+	@RequestMapping(value = PRODUCT_REGISTRATION, method = RequestMethod.POST)
 	@ApiResponses({@ApiResponse(code = 500, message = "Table 'product' not exists'"),
 				   @ApiResponse(code = 400, message = "Bad Request"),					   
 				   @ApiResponse(code = 200, message = "product registered")})
@@ -52,7 +60,7 @@ public class ProductController {
 		return new ResponseEntity<String> ("Product added", HttpStatus.CREATED);		
 	}
 	
-	@RequestMapping(value = "/product/deleteProduct", method = RequestMethod.DELETE)
+	@RequestMapping(value = PRODUCT_DELETE, method = RequestMethod.DELETE)
 	@ApiResponses({@ApiResponse(code = 500, message = "Table 'product' not exists'"),
 		   		   @ApiResponse(code = 400, message = "Bad Request"),					   
 		   		   @ApiResponse(code = 200, message = "product deleted")})
@@ -61,22 +69,22 @@ public class ProductController {
 		return new ResponseEntity<String> ("Product deleted", HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/product/getAllProducts", method = RequestMethod.GET)
+	@RequestMapping(value = PRODUCT_GET_ALLPRODUCT, method = RequestMethod.GET)
 	public ResponseEntity<List<Product>> getAllProducts() {
 		return new ResponseEntity<List<Product>>(productDao.getAllProducts(), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/product/getProduct", method = RequestMethod.GET)
+	@RequestMapping(value = PRODUCT_GET_PRODUCT, method = RequestMethod.GET)
 	public ResponseEntity<List<Product>> getProduct(@RequestBody @RequestParam int productId) {
 		return new ResponseEntity<List<Product>>(productDao.getProduct(productId), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/product/getBycategory", method = RequestMethod.GET)
+	@RequestMapping(value = PRODUCT_GET_BYCATEGORY, method = RequestMethod.GET)
 	public ResponseEntity<List<Product>> findProductsByCategory(@RequestBody @RequestParam String productCategory) {
 		return new ResponseEntity<List<Product>>(productDao.findProductsByCategory(productCategory), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/product/getByname", method = RequestMethod.GET)
+	@RequestMapping(value = PRODUCT_GET_BYNAME, method = RequestMethod.GET)
 	public ResponseEntity<List<Product>> findProductsByName(@RequestBody @RequestParam String productName) {
 		return new ResponseEntity<List<Product>>(productDao.findProductsByName(productName), HttpStatus.OK);
 	}

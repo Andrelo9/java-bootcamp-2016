@@ -14,32 +14,17 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
  *
  */
 @EnableWebSecurity
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-
-	private static final String URL_LOGOUT = "http://localhost:8080/shoppingCart/logout";
-	private static final String ADMIN = "ADMIN";
+public class WebSecurityConfig extends WebSecurityConfiguration {
+	
+	private static final String ROLE = "ADMIN";
 	private static final String PASSWORD = "password";
 	private static final String USER = "user";
 
 	@Bean
 	public UserDetailsService userDetailsService() {
 		InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-		manager.createUser(User.withUsername(USER).password(PASSWORD).roles(ADMIN).build());
+		manager.createUser(User.withUsername(USER).password(PASSWORD).roles(ROLE).build());
 		return manager;
-	}
-
-	protected void configure(HttpSecurity http) throws Exception {		
-		http
-			.logout()
-				.logoutUrl(URL_LOGOUT)
-				.invalidateHttpSession(true)
-			.and()
-			.authorizeRequests()
-				.anyRequest().authenticated()
-				.and()
-			.formLogin()
-				.and()
-			.httpBasic();
 	}
 	
 }
