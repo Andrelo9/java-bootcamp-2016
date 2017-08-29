@@ -1,4 +1,4 @@
-package com.globant.topiczeroone;
+package com.globant.topiczero.one;
 
 import java.sql.DriverManager;
 import java.sql.SQLException;

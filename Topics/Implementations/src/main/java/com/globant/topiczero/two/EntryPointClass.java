@@ -1,9 +1,9 @@
-package com.globant.topiczerotwo;
+package com.globant.topiczero.two;
 
 import java.io.IOException;
 import java.sql.SQLException;
 
-import com.globant.topiczerothree.SQLProxy;
+import com.globant.topiczero.three.SQLProxy;
 
 /**
  * Main class to test Abstract factory pattern with DB connections.

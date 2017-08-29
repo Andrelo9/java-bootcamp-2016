@@ -1,5 +1,6 @@
 package com.globant.finalproject.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,6 +28,7 @@ public class Product {
 	/**
 	 * @return the productId
 	 */
+	@Column(name = "product_id")
 	public int getProductId() {
 		return productId;
 	}
@@ -42,6 +44,7 @@ public class Product {
 	/**
 	 * @return the productName
 	 */
+	@Column(name = "product_name")
 	public String getProductName() {
 		return productName;
 	}
@@ -57,6 +60,7 @@ public class Product {
 	/**
 	 * @return the productCategory
 	 */
+	@Column(name = "product_category")
 	public String getProductCategory() {
 		return productCategory;
 	}
@@ -72,6 +76,7 @@ public class Product {
 	/**
 	 * @return the productPrice
 	 */
+	@Column(name = "product_price")
 	public Float getProductPrice() {
 		return productPrice;
 	}

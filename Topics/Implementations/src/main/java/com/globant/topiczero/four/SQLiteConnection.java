@@ -1,19 +1,19 @@
-package com.globant.topiczerofour;
+package com.globant.topiczero.four;
 
 /**
- * This class contains the basic information to build a PostgreSQL connection.
+ * This class contains the basic information to build a SQLite connection.
  * 
  * @author andres.vaninetti
  *
  */
-public class PostgreSQLConnection implements ConnectionBuilder {
+public class SQLiteConnection implements ConnectionBuilder {
 
-	private static final int PORT = 8081;
-	private static final String HOST = "anotherhost";
-	private static final String BASE_NAME = "fifa.db";
+	private static final int PORT = 8082;
+	private static final String HOSTNAME = "otherhost";
+	private static final String BASE_NAME = "fiba.db";
 	private SQLConnection sqlConnection;
 
-	public PostgreSQLConnection() {
+	public SQLiteConnection() {
 		sqlConnection = new SQLConnection();
 	}
 
@@ -25,13 +25,13 @@ public class PostgreSQLConnection implements ConnectionBuilder {
 
 	@Override
 	public ConnectionBuilder buildHostName() {
-		sqlConnection.setHostname(HOST);
+		sqlConnection.setHostname(HOSTNAME);
 		return this;
 	}
 
 	@Override
 	public ConnectionBuilder buildPort() {
-		sqlConnection.setPort(PORT);
+		this.sqlConnection.setPort(PORT);
 		return this;
 	}
 

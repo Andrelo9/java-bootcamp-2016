@@ -1,4 +1,4 @@
-package com.globant.topiczerofour;
+package com.globant.topiczero.four;
 
 public class ConnectionsMain {
 

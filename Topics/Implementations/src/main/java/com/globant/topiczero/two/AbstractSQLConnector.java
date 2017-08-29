@@ -1,4 +1,4 @@
-package com.globant.topiczerotwo;
+package com.globant.topiczero.two;
 
 import java.io.IOException;
 import java.io.InputStream;

@@ -1,19 +1,19 @@
-package com.globant.topiczerofour;
+package com.globant.topiczero.four;
 
 /**
- * This class contains the basic information to build a MySQL connection.
+ * This class contains the basic information to build a PostgreSQL connection.
  * 
  * @author andres.vaninetti
  *
  */
-public class MySQLConnection implements ConnectionBuilder {
+public class PostgreSQLConnection implements ConnectionBuilder {
 
-	private static final int PORT = 8080;
-	private static final String HOST = "localhost";
+	private static final int PORT = 8081;
+	private static final String HOST = "anotherhost";
 	private static final String BASE_NAME = "fifa.db";
 	private SQLConnection sqlConnection;
 
-	public MySQLConnection() {
+	public PostgreSQLConnection() {
 		sqlConnection = new SQLConnection();
 	}
 
@@ -31,7 +31,7 @@ public class MySQLConnection implements ConnectionBuilder {
 
 	@Override
 	public ConnectionBuilder buildPort() {
-		this.sqlConnection.setPort(PORT);
+		sqlConnection.setPort(PORT);
 		return this;
 	}
 
@@ -40,7 +40,4 @@ public class MySQLConnection implements ConnectionBuilder {
 		return this.sqlConnection;
 	}
 
-	public String toString() {
-		return this.getClass().getName() + ": connection";
-	}
 }

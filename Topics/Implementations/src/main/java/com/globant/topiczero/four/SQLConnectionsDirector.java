@@ -1,4 +1,4 @@
-package com.globant.topiczerofour;
+package com.globant.topiczero.four;
 
 /**
  * This class build a specific connection using a Builder Director

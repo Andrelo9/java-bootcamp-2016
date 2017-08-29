@@ -1,4 +1,4 @@
-package com.globant.topictwo;
+package com.globant.topictwo.exerciseone;
 
 import java.util.LinkedList;
 import java.util.List;

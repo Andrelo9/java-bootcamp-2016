@@ -1,5 +1,6 @@
 package com.globant.finalproject.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,6 +27,7 @@ public class CartItem {
 	/**
 	 * @return the cartitemId
 	 */
+	@Column(name = "cartitem_id")
 	public int getCartitemId() {
 		return cartitemId;
 	}
@@ -41,6 +43,7 @@ public class CartItem {
 	/**
 	 * @return the cartitemproductId
 	 */
+	@Column(name = "cartitemproduct_id")
 	public int getCartitemproductId() {
 		return cartitemproductId;
 	}
@@ -56,6 +59,7 @@ public class CartItem {
 	/**
 	 * @return the cartitemproductQuantity
 	 */
+	@Column(name = "cartitemproduct_quantity")
 	public int getCartitemproductQuantity() {
 		return cartitemproductQuantity;
 	}

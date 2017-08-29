@@ -1,4 +1,4 @@
-package com.globant.topiczerotwo;
+package com.globant.topiczero.two;
 
 /**
  * Enum class contains DB's used.

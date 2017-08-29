@@ -1,4 +1,4 @@
-package com.globant.topictwo;
+package com.globant.topictwo.exerciseone;
 
 /**
  * This class represent a basic behavior of a file.

@@ -75,4 +75,10 @@ public class CustomerController {
 		public ResponseEntity<List<Customer>> getAllCustomers() {
 			return new ResponseEntity<List<Customer>>(customerDao.getAllCustomers(), HttpStatus.OK);
 		}
+		
+		@RequestMapping(value = "/customer/buyCart", method = RequestMethod.PUT)
+		public ResponseEntity<String> buyShoppingCart(@RequestBody @RequestParam int cartId) {
+			customerDao.buyShoppingCart(cartId);
+			return new ResponseEntity<String>("Succesful transaction", HttpStatus.OK);
+		}
 }

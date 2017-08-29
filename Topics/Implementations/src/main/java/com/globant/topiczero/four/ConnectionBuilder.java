@@ -1,4 +1,4 @@
-package com.globant.topiczerofour;
+package com.globant.topiczero.four;
 
 /**
  * This interface establish a contract between differents SQL implementations to

@@ -1,4 +1,4 @@
-package com.globant.topiczerotwo;
+package com.globant.topiczero.two;
 
 /**
  * Abstract factory to use different types of DB.

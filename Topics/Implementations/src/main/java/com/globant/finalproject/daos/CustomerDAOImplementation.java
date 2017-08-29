@@ -15,6 +15,7 @@ public class CustomerDAOImplementation implements CustomerDAO {
 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
+	
 
 	public CustomerDAOImplementation() {
 
@@ -43,6 +44,11 @@ public class CustomerDAOImplementation implements CustomerDAO {
 	public List<Customer> getAllCustomers() {
 		String query = "SELECT * FROM customer";
 		return this.jdbcTemplate.query(query, new Object[] {}, new BeanPropertyRowMapper<Customer>(Customer.class));
+	}
+
+	@Override
+	public void buyShoppingCart(int cartId) {	
+		
 	}
 
 }

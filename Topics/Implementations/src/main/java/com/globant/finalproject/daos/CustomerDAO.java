@@ -48,5 +48,12 @@ public interface CustomerDAO {
 	 * @DELETE
 	 */
 	public void deleteCustomer(int customerId);
+	
+	/**
+	 * Buy a cart.
+	 * 
+	 * @param cartId
+	 */
+	public void buyShoppingCart(int cartId);
 
 }

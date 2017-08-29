@@ -1,5 +1,6 @@
 package com.globant.finalproject.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,6 +30,7 @@ public class Customer {
 	/**
 	 * @return the customerId
 	 */
+	@Column(name = "customer_id")
 	public int getCustomerId() {
 		return customerId;
 	}
@@ -44,6 +46,7 @@ public class Customer {
 	/**
 	 * @return the customerNickname
 	 */
+	@Column(name = "customer_nickname")
 	public String getCustomerNickname() {
 		return customerNickname;
 	}
@@ -59,6 +62,7 @@ public class Customer {
 	/**
 	 * @return the customerFirstname
 	 */
+	@Column(name = "customer_firstname")
 	public String getCustomerFirstname() {
 		return customerFirstname;
 	}
@@ -74,6 +78,7 @@ public class Customer {
 	/**
 	 * @return the customerLastname
 	 */
+	@Column(name = "customer_lastname")
 	public String getCustomerLastname() {
 		return customerLastname;
 	}
@@ -89,6 +94,7 @@ public class Customer {
 	/**
 	 * @return the customerPassword
 	 */
+	@Column(name = "customer_password")
 	public String getCustomerPassword() {
 		return customerPassword;
 	}
@@ -104,6 +110,7 @@ public class Customer {
 	/**
 	 * @return the customerEmail
 	 */
+	@Column(name = "customer_email")
 	public String getCustomerEmail() {
 		return customerEmail;
 	}

@@ -1,4 +1,4 @@
-package com.globant.topiczerofour;
+package com.globant.topiczero.four;
 
 /**
  * Base SQL features class, is used for every kind of SQL implementations to

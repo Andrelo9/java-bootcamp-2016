@@ -1,6 +1,6 @@
-package com.globant.topiczerothree;
+package com.globant.topiczero.three;
 
-import com.globant.topiczerotwo.AbstractFactory;
+import com.globant.topiczero.two.AbstractFactory;
 
 /**
  * This proxy try to add five seconds of wait to connect to a DB.
