@@ -5,11 +5,11 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.globant.topicthree.exerciseone.Product;
-import com.globant.topicthree.exerciseone.ShoppingCart;
-import com.globant.topicthree.exerciseone.ShoppingCartController;
-import com.globant.topicthree.exerciseone.ShoppingCartService;
-import com.globant.topicthree.exerciseone.ShoppingCartServiceFactory;
+import com.globant.topicthree.Product;
+import com.globant.topicthree.ShoppingCart;
+import com.globant.topicthree.ShoppingCartController;
+import com.globant.topicthree.ShoppingCartService;
+import com.globant.topicthree.ShoppingCartServiceFactory;
 
 import junit.framework.Assert;
 

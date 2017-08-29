@@ -1,4 +1,4 @@
-package com.globant.topicthree.exerciseone;
+package com.globant.topicthree;
 
 /**
  * This class represent a product, and is used to populate a shopping cart.

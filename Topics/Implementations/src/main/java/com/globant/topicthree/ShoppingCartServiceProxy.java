@@ -1,4 +1,4 @@
-package com.globant.topicthree.exerciseone;
+package com.globant.topicthree;
 
 /**
  * Proxy class for work with services.

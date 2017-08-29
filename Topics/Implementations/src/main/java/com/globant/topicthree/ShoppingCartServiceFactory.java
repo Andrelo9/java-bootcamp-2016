@@ -1,4 +1,4 @@
-package com.globant.topicthree.exerciseone;
+package com.globant.topicthree;
 
 /**
  * Factory patter to create different types of services.

@@ -1,4 +1,4 @@
-package com.globant.topicthree.exerciseone;
+package com.globant.topicthree;
 
 /**
  * This is the Shopping Cart API for manage his features. 
