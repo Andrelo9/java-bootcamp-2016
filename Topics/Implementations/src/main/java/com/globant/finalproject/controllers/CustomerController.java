@@ -12,6 +12,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,53 +40,39 @@ public class CustomerController {
 	@Autowired	
 	private CustomerDAO customerDao;
 	
+		
+	@RequestMapping(value = CUSTOMER_REGISTRATION, method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@ApiResponses({@ApiResponse(code = 500, message = "Table 'customer' not exists'"),
+				   @ApiResponse(code = 400, message = "Bad Request"),					   
+				   @ApiResponse(code = 200, message = "customer registered")})
+	public ResponseEntity<String> customerRegistration(@RequestBody Customer customer) throws SQLException {		
+		customerDao.customerRegistration(customer);		
+		return new ResponseEntity<String> ("Customer added", HttpStatus.CREATED);		
+	}
 	
-	//*************************************************************************//
-	//****************************CUSTOMER CONTROLLER**************************//
-	//*************************************************************************//
-		
-		@RequestMapping(value = CUSTOMER_REGISTRATION, method = RequestMethod.POST)
-		@ApiResponses({@ApiResponse(code = 500, message = "Table 'customer' not exists'"),
-					   @ApiResponse(code = 400, message = "Bad Request"),					   
-					   @ApiResponse(code = 200, message = "customer registered")})
-		public ResponseEntity<String> customerRegistration(@RequestBody @RequestParam int customerId,
-														   @RequestParam String customerNickname,
-														   @RequestParam String customerFirstname,
-														   @RequestParam String customerLastname,
-														   @RequestParam String customerPassword,
-														   @RequestParam String customerEmail) throws SQLException {		
-			customerDao.customerRegistration(customerId,
-									 		 customerNickname,
-									 		 customerFirstname,
-									 		 customerLastname,
-									 		 customerPassword,
-									 		 customerEmail);		
-			return new ResponseEntity<String> ("Customer added", HttpStatus.CREATED);		
-		}
-		
-		
-		@RequestMapping(value = CUSTOMER_GET_CUSTOMER, method = RequestMethod.GET)
-		public ResponseEntity<List<Customer>> getCustomer(@RequestBody @RequestParam int customerId) {
-			return new ResponseEntity<List<Customer>>(customerDao.getCustomer(customerId), HttpStatus.OK);
-		}	
-		
-		@RequestMapping(value = CUSTOMER_DELETE_CUSTOMER, method = RequestMethod.DELETE)
-		@ApiResponses({@ApiResponse(code = 500, message = "Table 'customer' not exists'"),
-			   		   @ApiResponse(code = 400, message = "Bad Request"),					   
-			   		   @ApiResponse(code = 200, message = "customer removed")})
-		public ResponseEntity<String> deleteCustomer(@RequestBody @RequestParam int customerId) {
-			customerDao.deleteCustomer(customerId);
-			return new ResponseEntity<String> ("Customer deleted", HttpStatus.OK);
-		}
-		
-		@RequestMapping(value = CUSTOMER_GET_ALLCUSTOMER, method = RequestMethod.GET)
-		public ResponseEntity<List<Customer>> getAllCustomers() {
-			return new ResponseEntity<List<Customer>>(customerDao.getAllCustomers(), HttpStatus.OK);
-		}
-		
-		@RequestMapping(value = CUSTOMER_BUY_CART, method = RequestMethod.PUT)
-		public ResponseEntity<String> buyShoppingCart(@RequestBody @RequestParam int cartId) {
-			customerDao.buyShoppingCart(cartId);
-			return new ResponseEntity<String>("Succesful transaction", HttpStatus.OK);
-		}
+	
+	@RequestMapping(value = CUSTOMER_GET_CUSTOMER, method = RequestMethod.GET)
+	public ResponseEntity<List<Customer>> getCustomer(@RequestBody @RequestParam int customerId) {
+		return new ResponseEntity<List<Customer>>(customerDao.getCustomer(customerId), HttpStatus.OK);
+	}	
+	
+	@RequestMapping(value = CUSTOMER_DELETE_CUSTOMER, method = RequestMethod.DELETE)
+	@ApiResponses({@ApiResponse(code = 500, message = "Table 'customer' not exists'"),
+		   		   @ApiResponse(code = 400, message = "Bad Request"),					   
+		   		   @ApiResponse(code = 200, message = "customer removed")})
+	public ResponseEntity<String> deleteCustomer(@RequestBody @RequestParam int customerId) {
+		customerDao.deleteCustomer(customerId);
+		return new ResponseEntity<String> ("Customer deleted", HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = CUSTOMER_GET_ALLCUSTOMER, method = RequestMethod.GET)
+	public ResponseEntity<List<Customer>> getAllCustomers() {
+		return new ResponseEntity<List<Customer>>(customerDao.getAllCustomers(), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = CUSTOMER_BUY_CART, method = RequestMethod.PUT)
+	public ResponseEntity<String> buyShoppingCart(@RequestBody @RequestParam int cartId) {
+		customerDao.buyShoppingCart(cartId);
+		return new ResponseEntity<String>("Succesful transaction", HttpStatus.OK);
+	}
 }

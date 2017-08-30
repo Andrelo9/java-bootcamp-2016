@@ -20,9 +20,9 @@ public class CartItemDAOImplementation implements CartItemDAO {
 	}
 
 	@Override
-	public void addProduct(int cartitemId, int cartitemproductId, int cartitemproductQuantity) {
+	public void addProduct(CartItem cartitem) {
 		String query = "INSERT INTO cartitem VALUES(?, ?, ?)";
-		this.jdbcTemplate.update(query, cartitemId, cartitemproductId, cartitemproductQuantity);
+		this.jdbcTemplate.update(query, cartitem.getCartitemId(), cartitem.getCartitemproductId(), cartitem.getCartitemproductQuantity());
 	}
 
 	@Override

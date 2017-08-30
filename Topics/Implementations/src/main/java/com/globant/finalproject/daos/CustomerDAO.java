@@ -22,8 +22,7 @@ public interface CustomerDAO {
 	 * @POST
 	 * 
 	 */
-	public void customerRegistration(int customerId, String customerNickname, String customerFirstname, String customerLastname,
-			String customerPassword, String customerEmail) throws SQLException;
+	public void customerRegistration(Customer customer) throws SQLException;
 
 	/**
 	 * Read a record from Customer in db.

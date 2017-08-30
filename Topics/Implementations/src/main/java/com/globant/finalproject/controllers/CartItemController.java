@@ -10,6 +10,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,21 +39,12 @@ public class CartItemController {
 	private CartItemDAO cartItemDAO;
 	
 	
-	
-	//*************************************************************************//
-	//****************************CART ITEMS CONTROLLER************************//
-	//*************************************************************************//
-	
-	@RequestMapping(value = CARTITEM_ADD, method = RequestMethod.POST)
+	@RequestMapping(value = CARTITEM_ADD, method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ApiResponses({@ApiResponse(code = 500, message = "Duplicate entry for primary key"),
 				   @ApiResponse(code = 500, message = "Table 'cartitem' not exists'"),
 				   @ApiResponse(code = 200, message = "Product added to CartItem")})
-	public ResponseEntity<String> addProduct(@RequestBody @RequestParam int cartitemId,
-														  @RequestParam int cartitemproductId,
-														  @RequestParam int cartitemproductQuantity) throws SQLException {
-		cartItemDAO.addProduct(cartitemId,
-							   cartitemproductId,
-							   cartitemproductQuantity);
+	public ResponseEntity<String> addProduct(@RequestBody CartItem cartitem) throws SQLException {
+		cartItemDAO.addProduct(cartitem);
 		return new ResponseEntity<String> ("Product added to cart items", HttpStatus.CREATED);		
 	}
 	

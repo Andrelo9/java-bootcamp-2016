@@ -21,7 +21,7 @@ public interface ProductDAO {
 	 * @param productCategory
 	 * @param productPrice
 	 */
-	public void addNewProduct(int productId, String productName, String productCategory, Float productPrice);
+	public void addNewProduct(Product product);
 
 	/**
 	 * Delete a product from the API.
