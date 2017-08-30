@@ -15,17 +15,16 @@ public class CustomerDAOImplementation implements CustomerDAO {
 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
-	
 
 	public CustomerDAOImplementation() {
 
 	}
 
 	@Override
-	public void customerRegistration(int customerId, String customerNickname, String customerFirstname, String customerLastname,
-			String customerPassword, String customerEmail) throws SQLException {
+	public void customerRegistration(Customer customer) throws SQLException {
 		String query = "INSERT INTO customer VALUES(?, ?, ?, ?, ?, ?)";
-		this.jdbcTemplate.update(query, customerId, customerNickname, customerFirstname, customerLastname, customerPassword, customerEmail);
+		this.jdbcTemplate.update(query, customer.getCustomerId(), customer.getCustomerNickname(), customer.getCustomerFirstname(),
+				customer.getCustomerLastname(), customer.getCustomerPassword(), customer.getCustomerEmail());
 	}
 
 	@Override
@@ -47,8 +46,8 @@ public class CustomerDAOImplementation implements CustomerDAO {
 	}
 
 	@Override
-	public void buyShoppingCart(int cartId) {	
-		
+	public void buyShoppingCart(int cartId) {
+
 	}
 
 }

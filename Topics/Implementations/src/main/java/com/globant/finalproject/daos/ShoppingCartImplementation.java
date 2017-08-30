@@ -16,9 +16,9 @@ public class ShoppingCartImplementation implements ShoppingCartDAO {
 	private JdbcTemplate jdbcTemplate;
 
 	@Override
-	public void saveCart(int cartId, int cartcustomerId) {
+	public void saveCart(ShoppingCart shoppingcart) {
 		String query = "INSERT INTO shoppingcart VALUES(?,?)";
-		this.jdbcTemplate.update(query, cartId, cartcustomerId);
+		this.jdbcTemplate.update(query, shoppingcart.getCartId(), shoppingcart.getCartcustomerId());
 	}
 
 	@Override

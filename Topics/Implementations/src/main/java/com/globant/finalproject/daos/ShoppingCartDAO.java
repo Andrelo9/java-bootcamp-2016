@@ -18,7 +18,7 @@ public interface ShoppingCartDAO {
 	 * 
 	 * @return Shopping Cart
 	 */
-	public void saveCart(int cartId, int cartcustomerId);
+	public void saveCart(ShoppingCart shoppingcart);
 
 	/**
 	 * Return information for required cart.

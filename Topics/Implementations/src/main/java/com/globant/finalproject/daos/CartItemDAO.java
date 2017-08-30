@@ -18,7 +18,7 @@ public interface CartItemDAO {
 	 * 
 	 * @param productToDelete
 	 */
-	public void addProduct(int cartitemId, int cartitemproductId, int cartitemproductQuantity);
+	public void addProduct(CartItem cartitem);
 
 	/**
 	 * Delete a product from the Cart items.

@@ -13,6 +13,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,24 +40,14 @@ public class ProductController {
 	
 	@Autowired
 	private ProductDAO productDao;
-	
-	
-	//*************************************************************************//
-	//****************************PRODUCT CONTROLLER***************************//
-	//*************************************************************************//
 		
-	@RequestMapping(value = PRODUCT_REGISTRATION, method = RequestMethod.POST)
+		
+	@RequestMapping(value = PRODUCT_REGISTRATION, method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ApiResponses({@ApiResponse(code = 500, message = "Table 'product' not exists'"),
 				   @ApiResponse(code = 400, message = "Bad Request"),					   
 				   @ApiResponse(code = 200, message = "product registered")})
-	public ResponseEntity<String> newProduct(@RequestBody @RequestParam int productId,
-														  @RequestParam String productName,
-														  @RequestParam String productCategory,
-														  @RequestParam float productPrice) throws SQLException {
-		productDao.addNewProduct(productId,
-								 productName,
-								 productCategory,
-								 productPrice);
+	public ResponseEntity<String> newProduct(@RequestBody Product product) throws SQLException {
+		productDao.addNewProduct(product);
 		return new ResponseEntity<String> ("Product added", HttpStatus.CREATED);		
 	}
 	

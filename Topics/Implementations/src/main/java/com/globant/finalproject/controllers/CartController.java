@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,19 +37,13 @@ public class CartController {
 	@Autowired
 	private ShoppingCartDAO shoppingCartDAO;
 	
-	
-	//*************************************************************************//
-	//****************************CART CONTROLLER******************************//
-	//*************************************************************************//
 		
-	@RequestMapping(value = CART_ADD, method = RequestMethod.POST)
+	@RequestMapping(value = CART_ADD, method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ApiResponses({@ApiResponse(code = 500, message = "Duplicate entry for primary key"),
 				   @ApiResponse(code = 500, message = "Table 'shoppingcart' not exists'"),
 				   @ApiResponse(code = 200, message = "Cart added")})	
-	public ResponseEntity<String> newProduct(@RequestBody @RequestParam int cartId,
-														  @RequestParam int cartcustomerId) throws SQLException {
-		shoppingCartDAO.saveCart(cartId,
-								 cartcustomerId);
+	public ResponseEntity<String> newProduct(@RequestBody ShoppingCart shoppingcart) throws SQLException {
+		shoppingCartDAO.saveCart(shoppingcart);
 		return new ResponseEntity<String> ("Cart added", HttpStatus.CREATED);		
 	}
 	
